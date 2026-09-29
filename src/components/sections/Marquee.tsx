@@ -24,7 +24,7 @@ export function Marquee({ items = defaultItems, reverse, className }: MarqueePro
       {items.map((item) => (
         <li
           key={item}
-          className="flex items-center gap-8 pr-8 font-display text-2xl whitespace-nowrap uppercase sm:text-3xl"
+          className="flex items-center gap-8 pr-8 font-display text-xl whitespace-nowrap uppercase sm:text-3xl"
         >
           {item}
           <SparkIcon className="size-5 text-charcoal" />
@@ -34,7 +34,9 @@ export function Marquee({ items = defaultItems, reverse, className }: MarqueePro
   );
 
   return (
-    <div className={cn("marquee relative z-10 overflow-hidden bg-brand-red py-5 text-cream", className)}>
+    <div
+      className={cn("marquee relative z-10 overflow-hidden bg-brand-red py-4 text-cream sm:py-5", className)}
+    >
       <div
         className={cn("marquee-track flex w-max", reverse ? "animate-marquee-reverse" : "animate-marquee")}
       >

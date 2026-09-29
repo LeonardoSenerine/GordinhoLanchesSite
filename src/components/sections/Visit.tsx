@@ -10,7 +10,7 @@ export function Visit() {
   const { address, hours, contact } = siteConfig;
 
   return (
-    <section id="visite" className="bg-ink py-24 sm:py-32">
+    <section id="visite" className="bg-ink py-20 sm:py-32">
       <Container>
         <SectionHeading
           kicker="Vem pro Gordinho"
@@ -21,8 +21,8 @@ export function Visit() {
           }
         />
 
-        <div className="mt-14 grid overflow-hidden rounded-3xl ring-1 ring-cream/10 lg:grid-cols-[0.8fr_1.2fr]">
-          <div className="space-y-8 bg-ink-2 p-8 sm:p-10">
+        <div className="mt-10 grid overflow-hidden rounded-3xl ring-1 ring-cream/10 sm:mt-14 lg:grid-cols-[0.8fr_1.2fr]">
+          <div className="space-y-8 bg-ink-2 p-6 sm:p-10">
             <div className="reveal flex gap-4">
               <MapPinIcon className="mt-1 size-6 shrink-0 text-brand-red" />
               <address className="not-italic">
@@ -57,7 +57,7 @@ export function Visit() {
               </p>
             </div>
 
-            <div className="reveal flex flex-wrap gap-3 pt-2" style={delay(300)}>
+            <div className="reveal flex flex-col gap-3 pt-2 sm:flex-row sm:flex-wrap" style={delay(300)}>
               <ButtonLink href={mapsLink()}>Abrir no Maps</ButtonLink>
               <ButtonLink href={whatsappLink()} variant="outline">
                 Chamar no WhatsApp

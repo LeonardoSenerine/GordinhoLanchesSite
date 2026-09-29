@@ -28,7 +28,7 @@ export function SectionHeading({
       {kicker && (
         <p
           className={cn(
-            "reveal-write mb-2 inline-block font-script text-3xl sm:text-4xl",
+            "reveal-write mb-2 inline-block font-script text-[1.75rem] sm:text-4xl",
             tone === "dark" ? "text-brand-mustard" : "text-brand-red",
           )}
         >
@@ -36,14 +36,17 @@ export function SectionHeading({
         </p>
       )}
       <h2
-        className="reveal text-4xl text-balance sm:text-5xl [&_em]:text-brand-red [&_em]:not-italic"
+        className="reveal text-[2rem] text-balance sm:text-5xl [&_em]:text-brand-red [&_em]:not-italic"
         style={delay(100)}
       >
         {title}
       </h2>
       {intro && (
         <p
-          className={cn("reveal mt-5 text-lg text-pretty", tone === "dark" ? "text-cream/70" : "text-muted")}
+          className={cn(
+            "reveal mt-5 text-base text-pretty sm:text-lg",
+            tone === "dark" ? "text-cream/70" : "text-muted",
+          )}
           style={delay(200)}
         >
           {intro}

@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 /** Quem faz o Gordinho: bastidores e equipe. A lista de nomes só aparece quando preenchida em data/people.ts. */
 export function Team() {
   return (
-    <section id="quem-faz" className="relative overflow-hidden bg-cream py-24 text-charcoal sm:py-32">
+    <section id="quem-faz" className="relative overflow-hidden bg-cream py-20 text-charcoal sm:py-32">
       <Container className="grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="grid grid-cols-5 gap-4">
           <div className="reveal-curtain col-span-3 overflow-hidden rounded-3xl">

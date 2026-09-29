@@ -30,7 +30,7 @@ const pillars: { title: string; text: string; photo: Photo }[] = [
 
 export function Pillars() {
   return (
-    <section id="jeito-gordinho" className="grain relative overflow-hidden bg-charcoal py-24 sm:py-32">
+    <section id="jeito-gordinho" className="grain relative overflow-hidden bg-charcoal py-20 sm:py-32">
       <Container>
         <SectionHeading
           kicker="Do jeito Gordinho"
@@ -43,8 +43,15 @@ export function Pillars() {
         />
       </Container>
 
+      <p
+        aria-hidden
+        className="mt-10 flex items-center gap-2 px-4 text-xs font-bold tracking-[0.2em] text-cream/50 uppercase sm:hidden"
+      >
+        Arraste para o lado <span className="animate-pulse">→</span>
+      </p>
+
       {/* Mobile: carrossel com scroll-snap · Desktop: grade de 4 */}
-      <ul className="mt-14 flex snap-x snap-mandatory [scrollbar-width:none] gap-4 overflow-x-auto px-4 pb-4 sm:px-6 lg:mx-auto lg:grid lg:max-w-6xl lg:grid-cols-4 lg:gap-6 lg:overflow-visible lg:px-8">
+      <ul className="mt-4 flex snap-x snap-mandatory [scrollbar-width:none] gap-4 overflow-x-auto px-4 pb-4 sm:mt-14 sm:px-6 lg:mx-auto lg:grid lg:max-w-6xl lg:grid-cols-4 lg:gap-6 lg:overflow-visible lg:px-8">
         {pillars.map((pillar, i) => (
           <li
             key={pillar.title}

@@ -11,7 +11,7 @@ export function Community() {
   if (testimonials.length === 0) return null;
 
   return (
-    <section id="quem-ja-faz-parte" className="grain relative overflow-hidden bg-ink py-24 sm:py-32">
+    <section id="quem-ja-faz-parte" className="grain relative overflow-hidden bg-ink py-20 sm:py-32">
       <Container>
         <SectionHeading
           align="center"

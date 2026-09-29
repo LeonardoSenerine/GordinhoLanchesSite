@@ -24,7 +24,7 @@ export function Gallery() {
   const { instagram, instagramHandle } = siteConfig.social;
 
   return (
-    <section id="de-perto" className="grain relative bg-charcoal pt-24 sm:pt-32">
+    <section id="de-perto" className="grain relative bg-charcoal pt-20 sm:pt-32">
       <Container className="flex flex-wrap items-end justify-between gap-8">
         <SectionHeading
           kicker={`${instagramHandle}`}

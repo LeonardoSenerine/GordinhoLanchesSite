@@ -9,7 +9,7 @@ import { WhatsAppIcon } from "@/components/ui/icons";
 /** Chamada final. Assume a ausência de cardápio no site como posicionamento. */
 export function FinalCta() {
   return (
-    <section aria-labelledby="cta-title" className="grain relative overflow-hidden py-32 sm:py-44">
+    <section aria-labelledby="cta-title" className="grain relative overflow-hidden py-24 sm:py-44">
       <div data-parallax="0.15" className="absolute inset-x-0 -inset-y-[20%]">
         <Image
           src={photos.heroBrasa.src}
@@ -24,13 +24,16 @@ export function FinalCta() {
 
       <Container className="relative text-center">
         <p className="reveal-write font-script text-4xl text-brand-mustard sm:text-5xl">Bateu a fome?</p>
-        <h2 id="cta-title" className="reveal mt-3 text-5xl text-balance sm:text-7xl" style={delay(150)}>
+        <h2 id="cta-title" className="reveal mt-3 text-[2.5rem] text-balance sm:text-7xl" style={delay(150)}>
           O cardápio muda. <span className="text-brand-red">O Gordinho, não.</span>
         </h2>
-        <p className="reveal mx-auto mt-6 max-w-xl text-lg text-cream/75" style={delay(250)}>
+        <p className="reveal mx-auto mt-6 max-w-xl text-base text-cream/75 sm:text-lg" style={delay(250)}>
           Quer saber o que tem hoje ou fazer um pedido? Fala direto com a gente.
         </p>
-        <div className="reveal mt-10 flex flex-wrap justify-center gap-4" style={delay(350)}>
+        <div
+          className="reveal mt-10 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap sm:gap-4"
+          style={delay(350)}
+        >
           <ButtonLink href={whatsappLink()} size="lg">
             <WhatsAppIcon className="size-5" /> Fale com a gente
           </ButtonLink>

@@ -9,13 +9,13 @@ export function Footer() {
 
   return (
     <footer className="grain relative overflow-hidden bg-brand-red pb-24 text-cream lg:pb-0">
-      <Container className="relative grid gap-12 py-16 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr]">
+      <Container className="relative grid gap-10 py-14 sm:grid-cols-2 sm:gap-12 sm:py-16 lg:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           {/* Placa escura: o emblema vermelho sumiria sobre o fundo vermelho */}
           <div className="inline-block -rotate-2 rounded-3xl bg-charcoal px-5 py-3 shadow-xl">
-            <Logo className="w-52" />
+            <Logo className="w-40 sm:w-52" />
           </div>
-          <p className="mt-4 font-script text-3xl">
+          <p className="mt-4 font-script text-2xl sm:text-3xl">
             Tradição que alimenta Itatiba desde {siteConfig.foundedYear}.
           </p>
         </div>

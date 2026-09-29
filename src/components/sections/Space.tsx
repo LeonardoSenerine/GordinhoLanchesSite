@@ -17,7 +17,7 @@ const features = [
 
 export function Space() {
   return (
-    <section id="espaco" className="relative overflow-hidden bg-cream py-24 text-charcoal sm:py-32">
+    <section id="espaco" className="relative overflow-hidden bg-cream py-20 text-charcoal sm:py-32">
       <Container className="grid gap-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <div>
           <SectionHeading

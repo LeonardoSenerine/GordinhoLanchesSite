@@ -151,9 +151,10 @@
       scale 1.6s var(--ease-brand);
     transition-delay: var(--delay, 0ms);
   }
-  /* Kicker manuscrito "se escrevendo" */
+  /* Kicker manuscrito "se escrevendo". Margens negativas na vertical/esquerda para
+     não cortar acentos e floreios da fonte manuscrita, que passam da caixa do texto. */
   .js-anim .reveal-write {
-    clip-path: inset(0 100% 0 0);
+    clip-path: inset(-40% 100% -40% -10%);
     transition: clip-path 1.1s var(--ease-brand);
     transition-delay: var(--delay, 0ms);
   }
@@ -162,7 +163,14 @@
     opacity: 1;
     translate: 0 0;
     scale: 1;
+  }
+  /* O recorte final só existe nas animações de clip-path — aplicado a tudo, cortaria
+     acentos que passam da caixa dos títulos (ex.: o til de "TRADIÇÃO"). */
+  .js-anim .reveal-curtain.is-visible {
     clip-path: inset(0 0 0 0);
+  }
+  .js-anim .reveal-write.is-visible {
+    clip-path: inset(-40% -10% -40% -10%);
   }
 }
 

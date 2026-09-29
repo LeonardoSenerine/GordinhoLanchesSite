@@ -23,7 +23,7 @@ export function Story() {
   ];
 
   return (
-    <section id="historia" className="relative overflow-hidden bg-cream py-24 text-charcoal sm:py-32">
+    <section id="historia" className="relative overflow-hidden bg-cream py-20 text-charcoal sm:py-32">
       <Container className="grid items-center gap-16 lg:grid-cols-2">
         {/* Colagem — TODO: trocar por foto antiga (anos 90) + foto atual quando o cliente enviar */}
         <div className="relative pb-16 lg:pb-0">
@@ -68,12 +68,14 @@ export function Story() {
             capricho, não.
           </p>
 
-          <dl className="mt-12 grid grid-cols-3 gap-4 border-t border-charcoal/10 pt-8">
+          <dl className="mt-10 grid grid-cols-3 gap-3 border-t border-charcoal/10 pt-8 sm:mt-12 sm:gap-4">
             {stats.map((stat, i) => (
               <div key={stat.label} className="reveal" style={delay(400 + i * 100)}>
                 <dt className="sr-only">{stat.label}</dt>
-                <dd className="font-display text-3xl text-brand-red sm:text-4xl">{stat.value}</dd>
-                <dd className="mt-1 text-sm text-muted">{stat.label}</dd>
+                <dd className="font-display text-[1.35rem] whitespace-nowrap text-brand-red sm:text-4xl">
+                  {stat.value}
+                </dd>
+                <dd className="mt-1 text-xs text-muted sm:text-sm">{stat.label}</dd>
               </div>
             ))}
           </dl>
