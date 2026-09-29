@@ -57,8 +57,7 @@ Tudo respeita `prefers-reduced-motion` (fica estático) e funciona sem JS (conte
   aparecem ao entrar na tela. Escalone com `style={delay(120)}`.
 - `data-parallax="0.1"`: desloca o elemento com o scroll (só desktop).
 - `data-tilt="8"`: cartão inclina em 3D seguindo o mouse; adicione `.tilt-glare` para o brilho.
-- `<SplitLetters text="..." />`: texto entrando letra por letra.
-- `.heading-mark`: grifo amarelo desenhando sob o `<em>` do título (já aplicado no SectionHeading).
+
 - `.line-draw` / `.dot-pop`: linha que se desenha e pontos que surgem (linha do tempo).
 - `.marquee-skew`: letreiro inclina com a velocidade do scroll (`--scroll-skew`).
 - `.mascot-idle`, `.stamp-swing`: movimentos contínuos sutis.

@@ -96,8 +96,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    opacity: 0.07;
-    mix-blend-mode: overlay;
+    opacity: 0.05;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
@@ -209,22 +208,6 @@
     clip-path: inset(-40% -10% -40% -10%);
   }
 
-  /* ---------- Letras entrando uma a uma (título do hero) ---------- */
-  .js-anim .split-letters .char {
-    display: inline-block;
-    animation: letter-in 0.8s var(--ease-brand) both;
-    animation-delay: calc(var(--i) * 45ms + 250ms);
-  }
-
-  /* ---------- Grifo amarelo desenhando sob as palavras em destaque dos títulos ---------- */
-  .js-anim .heading-mark em {
-    background-size: 0% 0.14em;
-    transition: background-size 0.9s var(--ease-brand) 0.55s;
-  }
-  .js-anim .heading-mark.is-visible em {
-    background-size: 100% 0.14em;
-  }
-
   /* ---------- Linha do tempo se desenhando ---------- */
   .js-anim .line-draw {
     scale: 0 1;
@@ -257,29 +240,11 @@
   .stamp-swing {
     animation: stamp-swing 6s ease-in-out infinite;
   }
-
-  /* ---------- Hero: brilho vermelho respirando ---------- */
-  .glow-breathe {
-    animation: glow-breathe 7s ease-in-out infinite;
-  }
-}
-
-@keyframes glow-breathe {
-  0%,
-  100% {
-    opacity: 0.7;
-    scale: 1;
-  }
-  50% {
-    opacity: 1;
-    scale: 1.12;
-  }
 }
 
 /* Brilho que acompanha o mouse nos cartões 3D ([data-tilt]) */
 [data-tilt] {
   transform-style: preserve-3d;
-  will-change: transform;
 }
 [data-tilt] .tilt-glare {
   background: radial-gradient(
@@ -294,23 +259,6 @@
   opacity: 1;
 }
 
-/* Grifo sob o <em> dos títulos (sem JS ele já aparece completo) */
-.heading-mark em {
-  background-image: linear-gradient(var(--color-brand-mustard), var(--color-brand-mustard));
-  background-repeat: no-repeat;
-  background-position: 0 92%;
-  background-size: 100% 0.14em;
-  padding-bottom: 0.06em;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
-}
-
-@keyframes letter-in {
-  from {
-    opacity: 0;
-    transform: translateY(0.55em) rotate(10deg);
-  }
-}
 @keyframes mascot-idle {
   0%,
   100% {
@@ -342,5 +290,52 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Entrada do hero (coreografada, como no Samoa) ----------
+ * Animações CSS que rodam desde o primeiro quadro — não dependem do JS/IntersectionObserver.
+ * Ordem: selo e linha de cima → título → frase "se escrevendo" → texto → botões;
+ * no desktop o vídeo entra com zoom e o mascote/selo chegam por último.
+ */
+@media (prefers-reduced-motion: no-preference) {
+  .hero-in {
+    animation: entrar-subir 0.9s var(--ease-brand) var(--d, 0s) both;
+  }
+  .hero-write {
+    animation: escrever 1.3s cubic-bezier(0.5, 0, 0.2, 1) var(--d, 0s) both;
+  }
+  .hero-zoom {
+    animation: entrar-zoom 1.3s var(--ease-brand) var(--d, 0s) both;
+  }
+}
+@keyframes entrar-subir {
+  from {
+    opacity: 0;
+    translate: 0 28px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+@keyframes entrar-zoom {
+  from {
+    opacity: 0;
+    scale: 0.94;
+    translate: 0 18px;
+  }
+  to {
+    opacity: 1;
+    scale: 1;
+    translate: 0 0;
+  }
+}
+@keyframes escrever {
+  from {
+    clip-path: inset(-20% 100% -20% 0);
+  }
+  to {
+    clip-path: inset(-20% -5% -20% 0);
   }
 }

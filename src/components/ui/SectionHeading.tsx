@@ -36,7 +36,7 @@ export function SectionHeading({
         </p>
       )}
       <h2
-        className="heading-mark reveal text-[2rem] text-balance sm:text-5xl [&_em]:text-brand-red [&_em]:not-italic"
+        className="reveal text-[2rem] text-balance sm:text-5xl [&_em]:text-brand-red [&_em]:not-italic"
         style={delay(100)}
       >
         {title}

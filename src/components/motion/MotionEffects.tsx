@@ -7,7 +7,7 @@ import { useEffect } from "react";
  * - `.reveal*` ganham `.is-visible` ao entrar na tela;
  * - `[data-parallax="0.1"]` desloca o elemento na vertical conforme o scroll (só desktop);
  * - `#scroll-progress` mostra quanto da página já foi rolado;
- * - `--scroll-skew` (no <html>) acompanha a velocidade do scroll — usado pelos letreiros;
+ * - `--scroll-skew` (só nos `.marquee-skew`) acompanha a velocidade do scroll;
  * - `[data-tilt]` inclina em 3D seguindo o mouse (só desktop com mouse).
  * Sem JS ou com movimento reduzido, tudo aparece estático.
  */
@@ -49,6 +49,10 @@ export function MotionEffects() {
     const desktop = window.matchMedia("(min-width: 1024px)");
     const parallaxEls = [...document.querySelectorAll<HTMLElement>("[data-parallax]")];
     const progress = document.getElementById("scroll-progress");
+    // A inclinação vai só nos letreiros: definir a variável no <html> a cada quadro forçava
+    // o navegador a recalcular os estilos da página inteira (e as imagens "piscavam").
+    const skewEls = [...document.querySelectorAll<HTMLElement>(".marquee-skew")];
+    const setSkew = (v: string) => skewEls.forEach((el) => el.style.setProperty("--scroll-skew", v));
 
     // ---------- Scroll: parallax, barra de progresso e inclinação por velocidade ----------
     let frame = 0;
@@ -60,14 +64,21 @@ export function MotionEffects() {
       const y = window.scrollY;
       const vh = window.innerHeight;
 
-      for (const el of parallaxEls) {
-        if (!desktop.matches) {
-          el.style.translate = "";
-          continue;
-        }
-        const rect = el.getBoundingClientRect();
-        const speed = Number(el.dataset.parallax) || 0.1;
-        el.style.translate = `0 ${((rect.top + rect.height / 2 - vh / 2) * -speed).toFixed(1)}px`;
+      // Parallax: primeiro LÊ todas as posições, depois ESCREVE — intercalar leitura e escrita
+      // força vários recálculos de layout por quadro.
+      if (desktop.matches) {
+        const offsets = parallaxEls.map((el) => {
+          const rect = el.getBoundingClientRect();
+          const visible = rect.bottom > -200 && rect.top < vh + 200;
+          const speed = Number(el.dataset.parallax) || 0.1;
+          return visible ? (rect.top + rect.height / 2 - vh / 2) * -speed : null;
+        });
+        parallaxEls.forEach((el, i) => {
+          const o = offsets[i];
+          if (o !== null) el.style.translate = `0 ${o.toFixed(1)}px`;
+        });
+      } else {
+        parallaxEls.forEach((el) => (el.style.translate = ""));
       }
 
       if (progress) {
@@ -79,9 +90,13 @@ export function MotionEffects() {
       const target = Math.max(-7, Math.min(7, (y - lastY) * 0.18));
       skew += (target - skew) * 0.2;
       lastY = y;
-      root.style.setProperty("--scroll-skew", `${skew.toFixed(2)}deg`);
-      if (Math.abs(skew) > 0.05) frame = requestAnimationFrame(tick);
-      else root.style.setProperty("--scroll-skew", "0deg");
+      if (Math.abs(skew) > 0.05) {
+        setSkew(`${skew.toFixed(2)}deg`);
+        frame = requestAnimationFrame(tick);
+      } else if (skew !== 0) {
+        skew = 0;
+        setSkew("0deg");
+      }
     };
     const onScroll = () => {
       if (!frame) frame = requestAnimationFrame(tick);
