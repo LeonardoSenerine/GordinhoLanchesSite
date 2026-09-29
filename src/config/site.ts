@@ -30,7 +30,7 @@ export const siteConfig = {
     phone: "(11) 4524-8391",
     // Bio do Instagram: "Telefone e WhatsApp (11) 4524-8391"
     whatsapp: "551145248391",
-    whatsappMessage: "Olá, Gordinho! Vim pelo site.",
+    whatsappMessage: "Olá!! Gostaria de fazer um pedido!",
   },
 
   address: {
@@ -43,10 +43,30 @@ export const siteConfig = {
     mapsQuery: "Gordinho Lanches, R. Luíz Scavone, 820 - Jardim de Lucca, Itatiba - SP",
   },
 
+  /*
+   * Horário do salão. `days` usa 0 = domingo … 6 = sábado (o dia em que ABRE).
+   * `closes` depois da meia-noite significa madrugada do dia seguinte.
+   */
   hours: [
-    // [CONFIRMAR] Google informa apenas "abre às 18:00" — falta dias e horário de fechamento
-    { days: "Todos os dias", time: "A partir das 18h" },
+    { label: "Domingo a quarta", short: "Dom–Qua", days: [0, 1, 2, 3], opens: "18:00", closes: "01:00" },
+    { label: "Quinta", short: "Qui", days: [4], opens: "18:00", closes: "02:00" },
+    {
+      label: "Sexta e sábado",
+      short: "Sex–Sáb",
+      days: [5, 6],
+      opens: "18:00",
+      closes: "05:00",
+      note: "Depois da meia-noite, o pedido é feito no balcão — o salão continua aberto.",
+    },
   ],
+
+  // Entregas: todos os dias
+  delivery: {
+    opens: "18:00",
+    closes: "00:00",
+    channels: ["WhatsApp", "iFood"],
+    ifood: "", // [PREENCHER] link da loja no iFood; sem ele, o botão do iFood não aparece
+  },
 
   social: {
     instagram: "https://www.instagram.com/gordinho.hamburgueria/",
@@ -68,7 +88,7 @@ export const siteConfig = {
     { label: "Nossa história", href: "/#historia" },
     { label: "Do jeito Gordinho", href: "/#jeito-gordinho" },
     { label: "O espaço", href: "/#espaco" },
-    { label: "De perto", href: "/#de-perto" },
+    { label: "Horários", href: "/#horarios" },
     { label: "Visite", href: "/#visite" },
   ],
 

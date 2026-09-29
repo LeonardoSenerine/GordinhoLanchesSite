@@ -1,6 +1,8 @@
 import { mapsLink, siteConfig } from "@/config/site";
 
-/** JSON-LD de restaurante local (Google: endereço, telefone, fundação, redes). */
+const SCHEMA_DAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+/** JSON-LD de restaurante local (Google: endereço, telefone, fundação, horários, redes). */
 export function StructuredData() {
   const { address, contact, social } = siteConfig;
 
@@ -22,6 +24,13 @@ export function StructuredData() {
       addressCountry: "BR",
     },
     hasMap: mapsLink(),
+    // Horários que passam da meia-noite: "closes" menor que "opens" = madrugada do dia seguinte
+    openingHoursSpecification: siteConfig.hours.map((h) => ({
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: h.days.map((d) => `https://schema.org/${SCHEMA_DAYS[d]}`),
+      opens: h.opens,
+      closes: h.closes,
+    })),
     amenityFeature: [
       { "@type": "LocationFeatureSpecification", name: "Espaço kids / playground", value: true },
       { "@type": "LocationFeatureSpecification", name: "Estacionamento", value: true },

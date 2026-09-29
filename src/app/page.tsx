@@ -9,6 +9,7 @@ import { Team } from "@/components/sections/Team";
 import { Community } from "@/components/sections/Community";
 import { Gallery } from "@/components/sections/Gallery";
 import { FinalCta } from "@/components/sections/FinalCta";
+import { Hours } from "@/components/sections/Hours";
 import { Visit } from "@/components/sections/Visit";
 import { Motto } from "@/components/sections/Motto";
 import { StructuredData } from "@/components/seo/StructuredData";
@@ -34,6 +35,7 @@ export default function Home() {
       <Team />
       <Community />
       <Gallery />
+      <Hours />
       <FinalCta />
       <Visit />
       <Motto />

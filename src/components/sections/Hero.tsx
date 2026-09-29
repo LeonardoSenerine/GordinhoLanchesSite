@@ -8,6 +8,7 @@ import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import { VideoLoop } from "@/components/motion/VideoLoop";
+import { OpenBadge } from "@/components/hours/OpenBadge";
 
 // Salão sem moldura (como no Ponto Alto): some à esquerda e embaixo, fundindo com o fundo escuro
 const fadeSalao: CSSProperties = {
@@ -66,6 +67,9 @@ export function Hero() {
       <Container className="relative grid min-h-svh items-end gap-14 pt-28 pb-12 sm:pb-16 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-16">
         {/* ---- Texto ---- */}
         <div>
+          <a href="#horarios" className="reveal mb-6 inline-block" style={delay(50)}>
+            <OpenBadge />
+          </a>
           <p
             className="reveal text-xs font-bold tracking-[0.25em] text-brand-mustard uppercase sm:text-sm"
             style={delay(100)}

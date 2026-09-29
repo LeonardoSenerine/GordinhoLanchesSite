@@ -1,5 +1,6 @@
 import { mapsLink, siteConfig, whatsappLink } from "@/config/site";
 import { delay } from "@/lib/utils";
+import { formatHour } from "@/lib/hours";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
@@ -7,7 +8,7 @@ import { ClockIcon, MapPinIcon, PhoneIcon } from "@/components/ui/icons";
 import { MapEmbed } from "@/components/ui/MapEmbed";
 
 export function Visit() {
-  const { address, hours, contact } = siteConfig;
+  const { address, hours, delivery, contact } = siteConfig;
 
   return (
     <section id="visite" className="bg-ink py-20 sm:py-32">
@@ -37,14 +38,30 @@ export function Visit() {
 
             <div className="reveal flex gap-4" style={delay(100)}>
               <ClockIcon className="mt-1 size-6 shrink-0 text-brand-red" />
-              <dl className="w-full">
-                {hours.map((h) => (
-                  <div key={h.days} className="flex justify-between gap-4">
-                    <dt className="text-cream/70">{h.days}</dt>
-                    <dd className="font-bold">{h.time}</dd>
+              <div className="w-full">
+                <dl className="space-y-1">
+                  {hours.map((h) => (
+                    <div key={h.label} className="flex justify-between gap-4">
+                      <dt className="text-cream/70">{h.label}</dt>
+                      <dd className="font-bold whitespace-nowrap">
+                        {formatHour(h.opens)} às {formatHour(h.closes)}
+                      </dd>
+                    </div>
+                  ))}
+                  <div className="flex justify-between gap-4 border-t border-cream/10 pt-2">
+                    <dt className="text-cream/70">Delivery (todos os dias)</dt>
+                    <dd className="font-bold whitespace-nowrap">
+                      {formatHour(delivery.opens)} às {formatHour(delivery.closes)}
+                    </dd>
                   </div>
-                ))}
-              </dl>
+                </dl>
+                <a
+                  href="#horarios"
+                  className="mt-2 inline-block text-sm font-bold text-brand-mustard underline-offset-4 hover:underline"
+                >
+                  Ver detalhes dos horários
+                </a>
+              </div>
             </div>
 
             <div className="reveal flex gap-4" style={delay(200)}>
