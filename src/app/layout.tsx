@@ -72,6 +72,13 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="pt-BR" className={`${display.variable} ${script.variable} ${sans.variable}`}>
       <body className="flex min-h-svh flex-col">
+        {/* Progresso da leitura (atualizado pelo MotionEffects) */}
+        <div
+          id="scroll-progress"
+          aria-hidden
+          className="fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-brand-red"
+          style={{ transform: "scaleX(0)" }}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

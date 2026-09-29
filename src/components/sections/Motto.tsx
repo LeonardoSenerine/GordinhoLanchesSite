@@ -11,7 +11,7 @@ export function Motto() {
           {siteConfig.motto.map((word, i) => (
             <span
               key={word}
-              className={`reveal block ${i === 1 ? "text-brand-red" : ""}`}
+              className={`${i % 2 ? "reveal-right" : "reveal-left"} block ${i === 1 ? "text-brand-red" : ""}`}
               style={delay(i * 180)}
             >
               {word}.

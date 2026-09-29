@@ -35,7 +35,10 @@ export function Marquee({ items = defaultItems, reverse, className }: MarqueePro
 
   return (
     <div
-      className={cn("marquee relative z-10 overflow-hidden bg-brand-red py-4 text-cream sm:py-5", className)}
+      className={cn(
+        "marquee marquee-skew relative z-10 overflow-hidden bg-brand-red py-4 text-cream sm:py-5",
+        className,
+      )}
     >
       <div
         className={cn("marquee-track flex w-max", reverse ? "animate-marquee-reverse" : "animate-marquee")}

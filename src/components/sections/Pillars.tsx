@@ -56,6 +56,7 @@ export function Pillars() {
         {pillars.map((pillar, i) => (
           <li
             key={pillar.title}
+            data-tilt="10"
             className="reveal group relative aspect-[3/4] w-[78%] shrink-0 snap-center overflow-hidden rounded-3xl sm:w-[45%] lg:w-auto"
             style={delay(i * 120)}
           >
@@ -68,6 +69,7 @@ export function Pillars() {
               className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <div className="absolute inset-0 bg-linear-to-t from-charcoal via-charcoal/45 to-transparent" />
+            <div aria-hidden className="tilt-glare pointer-events-none absolute inset-0" />
             <div className="absolute inset-x-0 bottom-0 p-6">
               <span className="font-display text-sm text-brand-red">0{i + 1}</span>
               <h3 className="mt-1 text-3xl">{pillar.title}</h3>

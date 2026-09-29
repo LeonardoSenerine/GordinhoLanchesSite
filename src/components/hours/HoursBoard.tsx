@@ -21,6 +21,7 @@ export function HoursBoard() {
           return (
             <li
               key={h.label}
+              data-tilt="6"
               className={cn(
                 "reveal relative flex flex-col rounded-3xl p-6 ring-1 transition-colors sm:p-7",
                 isToday ? "bg-brand-red ring-brand-red" : "bg-ink-2 ring-cream/10",

@@ -174,6 +174,21 @@
     transition: clip-path 1.1s var(--ease-brand);
     transition-delay: var(--delay, 0ms);
   }
+  /* Entradas laterais (ex.: palavras do lema alternando lados) */
+  .js-anim .reveal-left,
+  .js-anim .reveal-right {
+    opacity: 0;
+    transition:
+      opacity 1s var(--ease-brand),
+      translate 1s var(--ease-brand);
+    transition-delay: var(--delay, 0ms);
+  }
+  .js-anim .reveal-left {
+    translate: -12vw 0;
+  }
+  .js-anim .reveal-right {
+    translate: 12vw 0;
+  }
 
   .js-anim .is-visible {
     opacity: 1;
@@ -187,6 +202,111 @@
   }
   .js-anim .reveal-write.is-visible {
     clip-path: inset(-40% -10% -40% -10%);
+  }
+
+  /* ---------- Letras entrando uma a uma (título do hero) ---------- */
+  .js-anim .split-letters .char {
+    display: inline-block;
+    animation: letter-in 0.8s var(--ease-brand) both;
+    animation-delay: calc(var(--i) * 45ms + 250ms);
+  }
+
+  /* ---------- Grifo amarelo desenhando sob as palavras em destaque dos títulos ---------- */
+  .js-anim .heading-mark em {
+    background-size: 0% 0.14em;
+    transition: background-size 0.9s var(--ease-brand) 0.55s;
+  }
+  .js-anim .heading-mark.is-visible em {
+    background-size: 100% 0.14em;
+  }
+
+  /* ---------- Linha do tempo se desenhando ---------- */
+  .js-anim .line-draw {
+    scale: 0 1;
+    transition: scale 1.6s var(--ease-brand) 0.35s;
+  }
+  .js-anim .is-visible .line-draw {
+    scale: 1 1;
+  }
+  .js-anim .dot-pop {
+    scale: 0;
+    transition: scale 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) var(--delay, 0.2s);
+  }
+  .js-anim .is-visible .dot-pop {
+    scale: 1;
+  }
+
+  /* ---------- Letreiros inclinam com a velocidade do scroll ---------- */
+  .marquee-track {
+    transform-origin: center;
+  }
+  .marquee-skew {
+    transform: skewX(var(--scroll-skew, 0deg));
+  }
+
+  /* ---------- Personagens "vivos" ---------- */
+  .mascot-idle {
+    animation: mascot-idle 4.5s ease-in-out infinite;
+    transform-origin: 50% 90%;
+  }
+  .stamp-swing {
+    animation: stamp-swing 6s ease-in-out infinite;
+  }
+}
+
+/* Brilho que acompanha o mouse nos cartões 3D ([data-tilt]) */
+[data-tilt] {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+[data-tilt] .tilt-glare {
+  background: radial-gradient(
+    circle at var(--glare-x, 50%) var(--glare-y, 50%),
+    rgb(255 255 255 / 0.18),
+    transparent 55%
+  );
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+[data-tilt]:hover .tilt-glare {
+  opacity: 1;
+}
+
+/* Grifo sob o <em> dos títulos (sem JS ele já aparece completo) */
+.heading-mark em {
+  background-image: linear-gradient(var(--color-brand-mustard), var(--color-brand-mustard));
+  background-repeat: no-repeat;
+  background-position: 0 92%;
+  background-size: 100% 0.14em;
+  padding-bottom: 0.06em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+
+@keyframes letter-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.55em) rotate(10deg);
+  }
+}
+@keyframes mascot-idle {
+  0%,
+  100% {
+    translate: 0 0;
+    rotate: 0deg;
+  }
+  50% {
+    translate: 0 -5px;
+    rotate: -2.5deg;
+  }
+}
+@keyframes stamp-swing {
+  0%,
+  100% {
+    rotate: 12deg;
+  }
+  50% {
+    rotate: 4deg;
   }
 }
 

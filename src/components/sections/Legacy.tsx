@@ -35,9 +35,12 @@ export function Legacy() {
           <div className="flex items-center gap-4 sm:gap-6">
             <span className="font-display text-2xl sm:text-5xl">{siteConfig.foundedYear}</span>
             <span aria-hidden className="relative h-1 flex-1 rounded-full bg-cream/15">
-              <span className="absolute inset-y-0 left-0 w-full origin-left rounded-full bg-brand-red" />
-              <span className="absolute top-1/2 left-0 size-4 -translate-1/2 rounded-full bg-brand-red ring-4 ring-charcoal" />
-              <span className="absolute top-1/2 right-0 size-4 translate-x-1/2 -translate-y-1/2 rounded-full bg-cream ring-4 ring-charcoal" />
+              <span className="line-draw absolute inset-y-0 left-0 w-full origin-left rounded-full bg-brand-red" />
+              <span className="dot-pop absolute top-1/2 left-0 size-4 -translate-1/2 rounded-full bg-brand-red ring-4 ring-charcoal" />
+              <span
+                className="dot-pop absolute top-1/2 right-0 size-4 translate-x-1/2 -translate-y-1/2 rounded-full bg-cream ring-4 ring-charcoal"
+                style={delay(1700)}
+              />
             </span>
             <span className="font-display text-2xl text-brand-red sm:text-5xl">{now}</span>
           </div>

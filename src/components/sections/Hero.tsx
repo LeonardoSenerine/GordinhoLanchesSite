@@ -9,6 +9,7 @@ import { ButtonLink } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/icons";
 import { VideoLoop } from "@/components/motion/VideoLoop";
 import { OpenBadge } from "@/components/hours/OpenBadge";
+import { SplitLetters } from "@/components/motion/SplitLetters";
 
 // Salão sem moldura (como no Ponto Alto): some à esquerda e embaixo, fundindo com o fundo escuro
 const fadeSalao: CSSProperties = {
@@ -79,15 +80,13 @@ export function Hero() {
 
           <h1 className="mt-4 [text-shadow:0_6px_40px_rgb(0_0_0/0.55)]">
             <span className="sr-only">{siteConfig.name} — </span>
-            <span
-              className="reveal block text-[clamp(2.6rem,11vw,5rem)] leading-[0.95] whitespace-nowrap"
-              style={delay(200)}
-            >
-              Desde {siteConfig.foundedYear}.
-            </span>
+            <SplitLetters
+              text={`Desde ${siteConfig.foundedYear}.`}
+              className="block text-[clamp(2.6rem,11vw,5rem)] leading-[0.95] whitespace-nowrap"
+            />
             <span
               className="reveal mt-2 block text-[1.7rem] leading-[1.05] text-brand-red sm:text-[2rem]"
-              style={delay(320)}
+              style={delay(700)}
             >
               Sem economizar <br className="lg:hidden" />
               no sabor.
@@ -129,17 +128,19 @@ export function Hero() {
 
           {/* O PNG do mascote vem inclinado como no logo; a rotação o nivela na borda do vídeo */}
           <div className="reveal-zoom absolute bottom-0 -left-12 w-36 translate-y-[14%]" style={delay(700)}>
-            <Image
-              src={mascot}
-              alt=""
-              sizes="144px"
-              className="rotate-[11deg] drop-shadow-[0_12px_18px_rgb(0_0_0/0.55)]"
-            />
+            <div className="mascot-idle">
+              <Image
+                src={mascot}
+                alt=""
+                sizes="144px"
+                className="rotate-[11deg] drop-shadow-[0_12px_18px_rgb(0_0_0/0.55)]"
+              />
+            </div>
           </div>
 
           {years && (
             <div
-              className="reveal-zoom absolute -top-6 -right-8 grid size-32 rotate-12 place-items-center rounded-full bg-brand-red text-center shadow-xl"
+              className="stamp-swing reveal-zoom absolute -top-6 -right-8 grid size-32 rotate-12 place-items-center rounded-full bg-brand-red text-center shadow-xl"
               style={delay(800)}
             >
               <p className="font-display leading-none">
