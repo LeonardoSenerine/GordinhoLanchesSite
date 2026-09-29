@@ -49,7 +49,8 @@ const stories: Story[] = [
   },
 ];
 
-// Faixas de fotos em movimento (sentidos opostos)
+// Faixas de fotos em movimento (sentidos opostos).
+// Só fotos de alta resolução (originais de câmera) — as vindas do WhatsApp perdem nitidez aqui.
 const rowA: Photo[] = [
   photos.lanchePrato,
   photos.porcaoFrango,
@@ -57,21 +58,28 @@ const rowA: Photo[] = [
   photos.lancheQueijo,
   photos.hotDog,
   photos.salada,
+  photos.salaoPlayground,
 ];
 const rowB: Photo[] = [
   photos.lancheTabuaDrink,
-  photos.heroBrasa,
+  photos.salaoVertical2,
   photos.lanchePrato2,
+  photos.burgerMaos,
   photos.salaoAmplo,
   photos.lancheTabua,
-  photos.burgerMaos,
+  photos.comboLancheDrink,
 ];
+
+const edgeFade = {
+  maskImage: "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)",
+  WebkitMaskImage: "linear-gradient(to right, transparent, #000 6%, #000 94%, transparent)",
+};
 
 function PhotoRow({ items, reverse }: { items: Photo[]; reverse?: boolean }) {
   const { instagram } = siteConfig.social;
   // Trilha duplicada para o loop não ter emenda; a cópia fica fora da árvore de acessibilidade
   const track = (copy?: boolean) => (
-    <ul aria-hidden={copy} className="flex shrink-0 gap-3 pr-3 sm:gap-4 sm:pr-4">
+    <ul aria-hidden={copy} className="flex shrink-0 gap-4 pr-4 sm:gap-5 sm:pr-5">
       {items.map((photo) => (
         <li key={photo.alt} className="shrink-0">
           <a
@@ -79,13 +87,14 @@ function PhotoRow({ items, reverse }: { items: Photo[]; reverse?: boolean }) {
             target="_blank"
             rel="noopener noreferrer"
             tabIndex={copy ? -1 : undefined}
-            className="group relative block h-44 w-36 overflow-hidden rounded-2xl sm:h-64 sm:w-52"
+            className="group relative block h-60 w-48 overflow-hidden rounded-2xl ring-1 ring-cream/10 sm:h-80 sm:w-64"
           >
             <Image
               src={photo.src}
               alt={copy ? "" : photo.alt}
               fill
-              sizes="(min-width: 640px) 208px, 144px"
+              quality={85}
+              sizes="(min-width: 640px) 256px, 192px"
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <span className="absolute inset-0 grid place-items-center bg-brand-red/0 transition-colors duration-500 group-hover:bg-brand-red/60">
@@ -152,10 +161,27 @@ export function Gallery() {
         </div>
       </Container>
 
-      {/* Faixas de fotos em movimento; param no hover */}
-      <div className="relative -mx-[5%] mt-16 -rotate-2 space-y-3 sm:mt-24 sm:space-y-4">
-        <PhotoRow items={rowA} />
-        <PhotoRow items={rowB} reverse />
+      {/* Faixas de fotos em movimento; param no hover.
+          Sem rotação: girar uma camada animada faz o navegador reamostrar e borrar as fotos. */}
+      <div className="relative mt-20 sm:mt-28">
+        <Container className="flex items-center gap-4">
+          <p className="shrink-0 text-xs font-bold tracking-[0.25em] text-cream/60 uppercase">
+            Mais do Gordinho
+          </p>
+          <span aria-hidden className="h-px flex-1 bg-cream/15" />
+          <a
+            href={instagram}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex shrink-0 items-center gap-2 text-sm font-bold text-cream/80 transition-colors hover:text-brand-mustard"
+          >
+            <InstagramIcon className="size-4" /> {instagramHandle}
+          </a>
+        </Container>
+        <div className="mt-8 space-y-4 sm:space-y-5" style={edgeFade}>
+          <PhotoRow items={rowA} />
+          <PhotoRow items={rowB} reverse />
+        </div>
       </div>
     </section>
   );
