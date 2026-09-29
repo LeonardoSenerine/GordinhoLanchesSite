@@ -24,6 +24,8 @@
   --animate-marquee: marquee 38s linear infinite;
   --animate-marquee-reverse: marquee 38s linear infinite reverse;
   --animate-float: float 5s ease-in-out infinite;
+  --animate-kenburns: kenburns 22s ease-in-out infinite alternate;
+  --animate-nudge: nudge 1.8s ease-in-out infinite;
 
   @keyframes marquee {
     to {
@@ -33,6 +35,20 @@
   @keyframes float {
     50% {
       translate: 0 -10px;
+    }
+  }
+  /* Zoom lento para fotos de fundo não parecerem estáticas */
+  @keyframes kenburns {
+    from {
+      transform: scale(1) translate(0, 0);
+    }
+    to {
+      transform: scale(1.12) translate(-2%, -1.5%);
+    }
+  }
+  @keyframes nudge {
+    50% {
+      translate: 0 5px;
     }
   }
 }
