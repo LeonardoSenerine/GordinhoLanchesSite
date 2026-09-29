@@ -42,7 +42,7 @@ export function Hero() {
             fill
             priority
             quality={85}
-            sizes="58vw"
+            sizes="100vw"
             className="animate-kenburns object-cover object-[60%_45%] brightness-[.4] contrast-[1.1] saturate-[1.1]"
           />
         </div>

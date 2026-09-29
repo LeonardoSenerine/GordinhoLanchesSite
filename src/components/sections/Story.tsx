@@ -2,6 +2,7 @@ import Image from "next/image";
 import { siteConfig, yearsOfHistory } from "@/config/site";
 import { photos } from "@/assets/images";
 import { delay } from "@/lib/utils";
+import { coverPx, coverVw } from "@/lib/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CountUp } from "@/components/motion/CountUp";
@@ -33,7 +34,7 @@ export function Story() {
               alt={photos.equipeBalcao.alt}
               placeholder="blur"
               quality={90}
-              sizes="(min-width: 1024px) 560px, 100vw"
+              sizes={`(min-width: 1024px) ${coverPx(photos.equipeBalcao.src, 560, 4 / 3)}, ${coverVw(photos.equipeBalcao.src, 100, 4 / 3)}`}
               className="aspect-[4/3] object-cover"
             />
           </div>
@@ -43,7 +44,7 @@ export function Story() {
                 src={photos.lanchePrato2.src}
                 alt={photos.lanchePrato2.alt}
                 placeholder="blur"
-                sizes="280px"
+                sizes={coverPx(photos.lanchePrato2.src, 280, 1)}
                 className="aspect-square rotate-3 rounded-2xl border-[6px] border-cream object-cover shadow-2xl"
               />
             </div>

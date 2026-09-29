@@ -3,6 +3,7 @@ import { siteConfig } from "@/config/site";
 import { photos, type Photo } from "@/assets/images";
 import mascot from "@/assets/brand/mascote.png";
 import { cn, delay } from "@/lib/utils";
+import { coverPx } from "@/lib/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
@@ -94,7 +95,7 @@ function PhotoRow({ items, reverse }: { items: Photo[]; reverse?: boolean }) {
               alt={copy ? "" : photo.alt}
               fill
               quality={85}
-              sizes="(min-width: 640px) 256px, 192px"
+              sizes={`(min-width: 640px) ${coverPx(photo.src, 256, 4 / 5)}, ${coverPx(photo.src, 192, 4 / 5)}`}
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
             <span className="absolute inset-0 grid place-items-center bg-brand-red/0 transition-colors duration-500 group-hover:bg-brand-red/60">

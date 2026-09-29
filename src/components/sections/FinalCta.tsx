@@ -12,11 +12,11 @@ export function FinalCta() {
     <section aria-labelledby="cta-title" className="grain relative overflow-hidden py-24 sm:py-44">
       <div data-parallax="0.15" className="absolute inset-x-0 -inset-y-[20%]">
         <Image
-          src={photos.lancheTabuaDrink.src}
+          src={photos.heroBrasa.src}
           alt=""
           fill
           placeholder="blur"
-          sizes="100vw"
+          sizes="120vw"
           className="object-cover"
         />
       </div>

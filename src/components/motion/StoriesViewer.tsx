@@ -3,6 +3,7 @@
 import Image, { type StaticImageData } from "next/image";
 import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { cn } from "@/lib/utils";
+import { coverPx } from "@/lib/image";
 
 export type Story =
   | { kind: "video"; src: string; poster: string; kicker: string; title: string; duration?: number }
@@ -156,7 +157,7 @@ export function StoriesViewer({ stories, handle, avatar, className }: StoriesVie
               alt={story.alt}
               fill
               quality={85}
-              sizes="(min-width: 1024px) 360px, 80vw"
+              sizes={`(min-width: 640px) ${coverPx(story.src, 352, 9 / 16)}, ${coverPx(story.src, 320, 9 / 16)}`}
               className={cn(
                 "object-cover transition-transform ease-linear",
                 // Ken Burns leve enquanto o story está ativo
