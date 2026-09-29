@@ -144,18 +144,6 @@ export function Hero() {
           )}
         </div>
       </Container>
-
-      {/* Chamada para rolar (desktop). Centralizada com flex: a animação de entrada usa
-          "translate", que desfaria um -translate-x-1/2 */}
-      <div className="absolute inset-x-0 bottom-6 hidden justify-center lg:flex">
-        <a
-          href="#historia"
-          className="hero-in inline-flex items-center gap-3 text-[0.7rem] font-bold tracking-[0.3em] whitespace-nowrap text-cream/70 uppercase transition-colors before:h-px before:w-10 before:bg-cream/25 after:h-px after:w-10 after:bg-cream/25 hover:text-brand-mustard"
-          style={d(1.4)}
-        >
-          <span className="animate-nudge text-brand-red">↓</span> Conheça nossa história
-        </a>
-      </div>
     </section>
   );
 }
