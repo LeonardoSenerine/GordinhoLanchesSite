@@ -10,7 +10,6 @@ import { WhatsAppIcon } from "@/components/ui/icons";
 import { VideoLoop } from "@/components/motion/VideoLoop";
 import { OpenBadge } from "@/components/hours/OpenBadge";
 import { SplitLetters } from "@/components/motion/SplitLetters";
-import { Embers } from "@/components/motion/Embers";
 
 // Salão sem moldura (como no Ponto Alto): some à esquerda e embaixo, fundindo com o fundo escuro
 const fadeSalao: CSSProperties = {
@@ -65,9 +64,6 @@ export function Hero() {
         aria-hidden
         className="glow-breathe absolute -top-40 -left-40 -z-10 hidden size-[42rem] rounded-full bg-brand-red/25 blur-[140px] lg:block"
       />
-
-      {/* Faíscas de brasa subindo */}
-      <Embers />
 
       <Container className="relative grid min-h-svh items-end gap-14 pt-28 pb-12 sm:pb-16 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-16">
         {/* ---- Texto ---- */}
