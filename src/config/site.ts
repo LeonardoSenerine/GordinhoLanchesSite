@@ -16,7 +16,13 @@ export const siteConfig = {
     "Gordinho Lanches — desde 1992 fazendo parte de Itatiba/SP. Lanche caprichado, família reunida, espaço kids e estacionamento na porta no Itacenter Mall.",
   // Lema da bio do Instagram — usado como assinatura institucional
   motto: ["Perseverança", "Tribulação", "Paciência"],
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  // URL absoluta usada no SEO e nas imagens de compartilhamento. Sem NEXT_PUBLIC_SITE_URL,
+  // usa o domínio de produção que a Vercel injeta no build; em último caso, localhost.
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000"),
   // [CONFIRMAR] deduzido do post de "34 anos de história" (ago/2026)
   foundedYear: 1992 as number | null,
 

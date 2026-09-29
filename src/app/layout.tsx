@@ -26,6 +26,9 @@ const sans = Rubik({
   subsets: ["latin"],
 });
 
+const shareDescription =
+  "Sem economizar no sabor. Lanche de verdade, família reunida, espaço kids e estacionamento na porta no Itacenter Mall.";
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
@@ -44,13 +47,19 @@ export const metadata: Metadata = {
     "lugar para comer com crianças em Itatiba",
     "lanchonete tradicional Itatiba",
   ],
+  // Imagem da prévia: src/app/opengraph-image.jpg e twitter-image.jpg (gerar com `npm run og`)
   openGraph: {
     type: "website",
     locale: "pt_BR",
     siteName: siteConfig.name,
-    title: siteConfig.name,
-    description: siteConfig.description,
+    title: `${siteConfig.name} | Desde ${siteConfig.foundedYear} em ${siteConfig.city}/${siteConfig.state}`,
+    description: shareDescription,
     url: "/",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${siteConfig.name} | Desde ${siteConfig.foundedYear} em ${siteConfig.city}/${siteConfig.state}`,
+    description: shareDescription,
   },
   alternates: { canonical: "/" },
 };
