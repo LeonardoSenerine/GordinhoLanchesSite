@@ -29,8 +29,8 @@ export function Story() {
         <div className="relative pb-16 lg:pb-0">
           <div className="reveal-curtain overflow-hidden rounded-3xl">
             <Image
-              src={photos.salaoAmplo.src}
-              alt={photos.salaoAmplo.alt}
+              src={photos.equipeBalcao.src}
+              alt={photos.equipeBalcao.alt}
               placeholder="blur"
               sizes="(min-width: 1024px) 560px, 100vw"
               className="aspect-[4/3] object-cover"

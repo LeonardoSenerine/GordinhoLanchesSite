@@ -13,27 +13,27 @@ export function Team() {
         <div className="grid grid-cols-5 gap-4">
           <div className="reveal-curtain col-span-3 overflow-hidden rounded-3xl">
             <Image
-              src={photos.equipeBalcao.src}
-              alt={photos.equipeBalcao.alt}
+              src={photos.heroBrasa.src}
+              alt={photos.heroBrasa.alt}
               placeholder="blur"
               sizes="(min-width: 1024px) 400px, 60vw"
-              className="aspect-[3/4] object-cover"
+              className="aspect-[3/4] object-cover object-[40%_center]"
             />
           </div>
           <div className="col-span-2 flex flex-col gap-4 pt-12">
             <div className="reveal-curtain overflow-hidden rounded-3xl" style={delay(150)}>
               <Image
-                src={photos.heroBrasa.src}
-                alt={photos.heroBrasa.alt}
+                src={photos.burgerMaos.src}
+                alt={photos.burgerMaos.alt}
                 placeholder="blur"
                 sizes="(min-width: 1024px) 260px, 40vw"
-                className="aspect-square object-cover object-[35%_center]"
+                className="aspect-square object-cover"
               />
             </div>
             <div className="reveal-curtain overflow-hidden rounded-3xl" style={delay(300)}>
               <Image
-                src={photos.burgerMaos.src}
-                alt={photos.burgerMaos.alt}
+                src={photos.comboLancheDrink.src}
+                alt={photos.comboLancheDrink.alt}
                 placeholder="blur"
                 sizes="(min-width: 1024px) 260px, 40vw"
                 className="aspect-square object-cover"
