@@ -7,33 +7,36 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 import { InstagramIcon } from "@/components/ui/icons";
 
+// Mistura chapa, mesa e salão — "o Gordinho acontecendo", não um catálogo de produtos.
+// TODO: incluir fotos documentais (mesa cheia, família chegando, lanche sendo montado) quando houver.
 const gallery = [
   photos.burgerMaos,
-  photos.lanchePrato2,
+  photos.salaoPlayground2,
   photos.comboLancheDrink,
+  photos.equipeBalcao,
   photos.porcaoFrango,
-  photos.lancheTabua,
+  photos.lancheQueijo,
   photos.salada,
   photos.lancheTabuaDrink,
-  photos.hotDog,
 ];
 
 export function Gallery() {
   const { instagram, instagramHandle } = siteConfig.social;
 
   return (
-    <section id="galeria" className="grain relative bg-charcoal pt-24 sm:pt-32">
+    <section id="de-perto" className="grain relative bg-charcoal pt-24 sm:pt-32">
       <Container className="flex flex-wrap items-end justify-between gap-8">
         <SectionHeading
-          kicker="Pra dar água na boca"
+          kicker={`${instagramHandle}`}
           title={
             <>
-              Direto da <em>nossa chapa</em>
+              O Gordinho <em>de perto</em>
             </>
           }
+          intro="O que acontece na chapa, na mesa e nos bastidores — todo dia."
         />
         <ButtonLink href={instagram} variant="outline" className="reveal">
-          <InstagramIcon className="size-4" /> Siga {instagramHandle}
+          <InstagramIcon className="size-4" /> Ver no Instagram
         </ButtonLink>
       </Container>
 

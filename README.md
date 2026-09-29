@@ -1,7 +1,7 @@
 # Gordinho Lanches — Site institucional
 
 Landing page de marca do Gordinho Lanches (hamburgueria em Itatiba/SP, desde 1992).
-Sem cardápio: o foco é história, experiência e conversão via WhatsApp.
+Sem cardápio: o foco é o legado (desde 1992), a família e a conversão via WhatsApp.
 
 **Stack:** Next.js 16 (App Router) · React 19 · TypeScript · Tailwind CSS v4
 
@@ -30,10 +30,13 @@ src/
     brand/Logo.tsx     emblema em SVG (sem "self service", que não existe mais)
     layout/            Header, Footer, FloatingActions (WhatsApp flutuante / barra mobile)
     motion/            MotionEffects (revelação + parallax), CountUp, VideoLoop
-    sections/          Hero, Marquee, Story, Pillars, ImageBand, Space, Gallery, FinalCta, Visit
+    sections/          Hero, Marquee, Legacy, Story, Pillars, Space, ImageBand, Team,
+                       Community, Gallery, FinalCta, Visit, Motto
+    seo/               StructuredData (JSON-LD de restaurante)
     ui/                Button, Container, SectionHeading, MapEmbed, icons
-  config/site.ts       dados do negócio (contato, endereço, horários, redes, navegação)
-public/videos/         vídeo do hero (loop do trecho 3s–15s)
+  config/site.ts       dados do negócio (contato, endereço, horários, redes, lema, navegação)
+  data/people.ts       equipe e depoimentos REAIS (seções só aparecem quando preenchidos)
+public/videos/         vídeo do hero (loop do trecho 5s–16s)
 fotos-originais/       originais de câmera — fora do git e do build
 ```
 

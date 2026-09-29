@@ -1,14 +1,14 @@
 import { cn } from "@/lib/utils";
 import { SparkIcon } from "@/components/ui/icons";
 
+// Valores da marca — não produtos (o site não é cardápio)
 const defaultItems = [
-  "Lanches caprichados",
-  "Hot dogs",
-  "Pizzas artesanais",
-  "Porções",
-  "Espaço kids",
-  "Estacionamento na porta",
   "Desde 1992",
+  "Feito na chapa",
+  "Sem economizar no sabor",
+  "Família reunida",
+  "Orgulho de Itatiba",
+  "Tradição que atravessa gerações",
 ];
 
 interface MarqueeProps {

@@ -4,26 +4,27 @@ import { delay } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
+// O que torna o Gordinho diferente — valores, não produtos.
 const pillars: { title: string; text: string; photo: Photo }[] = [
   {
-    title: "Lanches caprichados",
-    text: "Pão macio, recheio generoso e chapa quente. O clássico que fez a fama da casa.",
+    title: "Fartura",
+    text: "Aqui recheio não é detalhe.",
     photo: photos.lanchePrato,
   },
   {
-    title: "Hot dogs",
-    text: "Prensado, com batata palha e molho na medida certa.",
-    photo: photos.hotDog,
+    title: "Chapa",
+    text: "O lanche sai quente, feito na hora.",
+    photo: photos.lancheTabua,
   },
   {
-    title: "Porções pra dividir",
-    text: "Petiscos tradicionais pra mesa inteira — e ainda tem pizza artesanal.",
-    photo: photos.porcaoFrango,
-  },
-  {
-    title: "Espaço kids",
-    text: "Playground pra criançada enquanto a família aproveita sem pressa.",
+    title: "Família",
+    text: "Criança brinca. Adulto conversa. Todo mundo come.",
     photo: photos.salaoPlayground,
+  },
+  {
+    title: "Tradição",
+    text: "O sabor que atravessou gerações.",
+    photo: photos.hotDog,
   },
 ];
 
@@ -38,7 +39,7 @@ export function Pillars() {
               Aqui ninguém sai <em>com fome</em>
             </>
           }
-          intro="Não é só lanche: é o sabor de sempre, servido com fartura, num lugar onde todo mundo cabe."
+          intro="Não é sobre um lanche específico. É sobre o jeito de fazer que Itatiba reconhece de longe."
         />
       </Container>
 
@@ -57,13 +58,11 @@ export function Pillars() {
               sizes="(min-width: 1024px) 280px, 80vw"
               className="absolute inset-0 size-full object-cover transition-transform duration-700 group-hover:scale-110"
             />
-            <div className="absolute inset-0 bg-linear-to-t from-charcoal via-charcoal/40 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-charcoal via-charcoal/45 to-transparent" />
             <div className="absolute inset-x-0 bottom-0 p-6">
               <span className="font-display text-sm text-brand-red">0{i + 1}</span>
-              <h3 className="mt-1 text-2xl">{pillar.title}</h3>
-              <p className="mt-2 text-sm text-cream/75 lg:max-h-0 lg:opacity-0 lg:transition-all lg:duration-500 lg:group-hover:max-h-24 lg:group-hover:opacity-100">
-                {pillar.text}
-              </p>
+              <h3 className="mt-1 text-3xl">{pillar.title}</h3>
+              <p className="mt-2 font-script text-2xl leading-tight text-brand-mustard">{pillar.text}</p>
             </div>
           </li>
         ))}

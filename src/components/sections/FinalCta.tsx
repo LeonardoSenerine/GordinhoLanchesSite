@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/Container";
 import { ButtonLink } from "@/components/ui/Button";
 import { WhatsAppIcon } from "@/components/ui/icons";
 
+/** Chamada final. Assume a ausência de cardápio no site como posicionamento. */
 export function FinalCta() {
   return (
     <section aria-labelledby="cta-title" className="grain relative overflow-hidden py-32 sm:py-44">
@@ -24,11 +25,14 @@ export function FinalCta() {
       <Container className="relative text-center">
         <p className="reveal-write font-script text-4xl text-brand-mustard sm:text-5xl">Bateu a fome?</p>
         <h2 id="cta-title" className="reveal mt-3 text-5xl text-balance sm:text-7xl" style={delay(150)}>
-          O Gordinho <span className="text-brand-red">te espera.</span>
+          O cardápio muda. <span className="text-brand-red">O Gordinho, não.</span>
         </h2>
-        <div className="reveal mt-10 flex flex-wrap justify-center gap-4" style={delay(300)}>
+        <p className="reveal mx-auto mt-6 max-w-xl text-lg text-cream/75" style={delay(250)}>
+          Quer saber o que tem hoje ou fazer um pedido? Fala direto com a gente.
+        </p>
+        <div className="reveal mt-10 flex flex-wrap justify-center gap-4" style={delay(350)}>
           <ButtonLink href={whatsappLink()} size="lg">
-            <WhatsAppIcon className="size-5" /> Peça pelo WhatsApp
+            <WhatsAppIcon className="size-5" /> Fale com a gente
           </ButtonLink>
           <ButtonLink href={mapsLink()} size="lg" variant="light">
             Como chegar

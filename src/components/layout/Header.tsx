@@ -63,7 +63,7 @@ export function Header() {
         </nav>
 
         <ButtonLink href={whatsappLink()} className="hidden lg:inline-flex">
-          <WhatsAppIcon className="size-4" /> Peça agora
+          <WhatsAppIcon className="size-4" /> WhatsApp
         </ButtonLink>
 
         <button
@@ -99,7 +99,7 @@ export function Header() {
               </a>
             ))}
             <ButtonLink href={whatsappLink()} size="lg" className="mt-6" onClick={() => setOpen(false)}>
-              <WhatsAppIcon className="size-5" /> Peça pelo WhatsApp
+              <WhatsAppIcon className="size-5" /> Chamar no WhatsApp
             </ButtonLink>
           </Container>
         </nav>

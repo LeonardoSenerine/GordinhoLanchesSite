@@ -7,8 +7,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ButtonLink } from "@/components/ui/Button";
 
 const features = [
+  { title: "Espaço kids", text: "Playground dentro do salão, à vista da mesa." },
   { title: "Salão amplo", text: "Mesas pra turma toda, do casal à família inteira." },
-  { title: "Espaço kids", text: "Playground no salão pra criançada gastar energia." },
   {
     title: "Estacionamento na porta",
     text: `No ${siteConfig.address.complement}, sem dor de cabeça pra parar.`,
@@ -22,13 +22,13 @@ export function Space() {
         <div>
           <SectionHeading
             tone="light"
-            kicker="O espaço"
+            kicker="Aqui todo mundo cabe"
             title={
               <>
-                Lugar de <em>família</em> reunida
+                Tem lugar que você conhece. E tem lugar que <em>vira família.</em>
               </>
             }
-            intro="É chegar e ficar à vontade: salão confortável, cantinho das crianças e aquele clima de casa cheia."
+            intro="Procurando um lugar pra comer com as crianças em Itatiba? Enquanto a criançada se diverte no playground, a família aproveita sem pressa."
           />
 
           <ol className="mt-10 space-y-6">
@@ -72,8 +72,8 @@ export function Space() {
           </div>
           <div className="reveal-curtain overflow-hidden rounded-3xl" style={delay(300)}>
             <Image
-              src={photos.salaoAmplo.src}
-              alt={photos.salaoAmplo.alt}
+              src={photos.salaoVertical.src}
+              alt={photos.salaoVertical.alt}
               placeholder="blur"
               sizes="(min-width: 1024px) 300px, 50vw"
               className="aspect-[3/4] object-cover"

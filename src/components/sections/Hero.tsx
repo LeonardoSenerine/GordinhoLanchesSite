@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { mapsLink, siteConfig, whatsappLink, yearsOfHistory } from "@/config/site";
+import { siteConfig, whatsappLink, yearsOfHistory } from "@/config/site";
 import { photos } from "@/assets/images";
 import { delay } from "@/lib/utils";
 import { Container } from "@/components/ui/Container";
@@ -23,26 +23,23 @@ export function Hero() {
         <div>
           <Logo className="reveal-zoom w-full max-w-[16rem] sm:max-w-[19rem]" />
 
-          <p
-            className="reveal-write mt-6 font-script text-3xl text-brand-mustard sm:text-4xl"
-            style={delay(200)}
-          >
-            Desde {siteConfig.foundedYear} em {siteConfig.city}
-          </p>
-          <h1 className="reveal mt-2 text-4xl text-balance sm:text-5xl xl:text-6xl" style={delay(300)}>
-            <span className="sr-only">{siteConfig.name}: </span>
-            Lanche de verdade, <span className="text-brand-red">sem economia.</span>
+          <h1 className="reveal mt-8 text-5xl leading-[0.95] sm:text-6xl xl:text-7xl" style={delay(200)}>
+            <span className="sr-only">{siteConfig.name} — </span>
+            Desde {siteConfig.foundedYear}.
+            <span className="mt-2 block text-3xl text-brand-red sm:text-4xl xl:text-5xl">
+              Sem economizar no sabor.
+            </span>
           </h1>
-          <p className="reveal mt-5 max-w-lg text-lg text-cream/75" style={delay(400)}>
-            Sanduíches caseiros, hot dogs, pizzas artesanais e aquele ambiente de família que Itatiba conhece
-            {years ? ` há ${years} anos` : ""}.
+          <p className="reveal mt-6 max-w-lg text-lg text-cream/75" style={delay(350)}>
+            {years ? `Há ${years} anos` : "Há décadas"} fazendo parte das noites de {siteConfig.city}, com
+            lanche caprichado, família reunida e aquele sabor que continua o mesmo.
           </p>
           <div className="reveal mt-8 flex flex-wrap gap-4" style={delay(500)}>
-            <ButtonLink href={whatsappLink()} size="lg">
-              <WhatsAppIcon className="size-5" /> Peça pelo WhatsApp
+            <ButtonLink href="#historia" size="lg">
+              Conheça o Gordinho
             </ButtonLink>
-            <ButtonLink href={mapsLink()} size="lg" variant="outline">
-              Como chegar
+            <ButtonLink href={whatsappLink()} size="lg" variant="outline">
+              <WhatsAppIcon className="size-5" /> Chamar no WhatsApp
             </ButtonLink>
           </div>
         </div>
@@ -57,8 +54,8 @@ export function Hero() {
             <VideoLoop
               src="/videos/lanches.mp4"
               poster={photos.burgerMaos.src.src}
-              start={3}
-              end={15}
+              start={5}
+              end={16}
               className="absolute inset-0 size-full"
             />
             <div aria-hidden className="absolute inset-0 bg-linear-to-t from-charcoal/50 via-transparent" />
@@ -83,7 +80,7 @@ export function Hero() {
             >
               <p className="font-display leading-none">
                 <span className="block text-4xl sm:text-5xl">{years}</span>
-                <span className="text-[0.65rem] tracking-widest sm:text-xs">ANOS DE HISTÓRIA</span>
+                <span className="block text-[0.65rem] leading-tight tracking-widest sm:text-xs">ANOS DE HISTÓRIA</span>
               </p>
             </div>
           )}

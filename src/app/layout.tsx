@@ -41,6 +41,8 @@ export const metadata: Metadata = {
     "Itatiba",
     "Gordinho Lanches",
     "espaço kids",
+    "lugar para comer com crianças em Itatiba",
+    "lanchonete tradicional Itatiba",
   ],
   openGraph: {
     type: "website",

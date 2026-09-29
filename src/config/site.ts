@@ -13,7 +13,9 @@ export const siteConfig = {
   city: "Itatiba",
   state: "SP",
   description:
-    "Gordinho Lanches — hamburgueria tradicional de Itatiba/SP desde 1992. Lanches caprichados, hot dogs, pizzas artesanais e espaço kids no Itacenter Mall.",
+    "Gordinho Lanches — desde 1992 fazendo parte de Itatiba/SP. Lanche caprichado, família reunida, espaço kids e estacionamento na porta no Itacenter Mall.",
+  // Lema da bio do Instagram — usado como assinatura institucional
+  motto: ["Perseverança", "Tribulação", "Paciência"],
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   // [CONFIRMAR] deduzido do post de "34 anos de história" (ago/2026)
   foundedYear: 1992 as number | null,
@@ -22,7 +24,7 @@ export const siteConfig = {
     phone: "(11) 4524-8391",
     // Bio do Instagram: "Telefone e WhatsApp (11) 4524-8391"
     whatsapp: "551145248391",
-    whatsappMessage: "Olá, Gordinho! Gostaria de fazer um pedido.",
+    whatsappMessage: "Olá, Gordinho! Vim pelo site.",
   },
 
   address: {
@@ -48,10 +50,10 @@ export const siteConfig = {
   },
 
   nav: [
-    { label: "História", href: "#historia" },
+    { label: "Nossa história", href: "#historia" },
     { label: "Do jeito Gordinho", href: "#jeito-gordinho" },
     { label: "O espaço", href: "#espaco" },
-    { label: "Galeria", href: "#galeria" },
+    { label: "De perto", href: "#de-perto" },
     { label: "Visite", href: "#visite" },
   ],
 } as const;

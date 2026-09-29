@@ -24,7 +24,7 @@ export function FloatingActions() {
         href={whatsappLink()}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Pedir pelo WhatsApp"
+        aria-label="Chamar no WhatsApp"
         tabIndex={visible ? 0 : -1}
         className={cn(
           "btn-shine fixed right-6 bottom-6 z-40 hidden items-center gap-3 rounded-full bg-[#25d366] py-3 pr-6 pl-4 font-bold text-charcoal shadow-2xl shadow-black/40 transition-all duration-500 lg:flex",
@@ -32,7 +32,7 @@ export function FloatingActions() {
         )}
       >
         <WhatsAppIcon className="size-7" />
-        Peça pelo WhatsApp
+        Chamar no WhatsApp
       </a>
 
       <nav
@@ -49,7 +49,7 @@ export function FloatingActions() {
           tabIndex={visible ? 0 : -1}
           className="flex h-12 items-center justify-center gap-2 rounded-full bg-brand-red text-sm font-bold uppercase"
         >
-          <WhatsAppIcon className="size-5" /> Pedir
+          <WhatsAppIcon className="size-5" /> WhatsApp
         </a>
         <a
           href={mapsLink()}

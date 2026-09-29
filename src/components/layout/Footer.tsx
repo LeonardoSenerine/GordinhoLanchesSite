@@ -70,7 +70,9 @@ export function Footer() {
           <p>
             © {year} {siteConfig.name}. Todos os direitos reservados.
           </p>
-          <p>Perseverança · Tribulação · Paciência</p>
+          <p>
+            {siteConfig.city}/{siteConfig.state} · desde {siteConfig.foundedYear}
+          </p>
         </Container>
       </div>
     </footer>
