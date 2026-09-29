@@ -12,16 +12,26 @@ export function Hero() {
   const years = yearsOfHistory();
 
   return (
-    <section id="inicio" className="grain relative overflow-hidden bg-charcoal pt-20">
-      {/* Brilho vermelho de fundo */}
+    <section id="inicio" className="grain relative isolate overflow-hidden bg-charcoal lg:pt-20">
+      {/* Mobile/tablet (como no Samoa): vídeo em tela cheia no fundo, texto ancorado embaixo */}
+      <div aria-hidden className="absolute inset-0 -z-10 lg:hidden">
+        <VideoLoop
+          src="/videos/lanches.mp4"
+          poster="/videos/lanches-poster.jpg"
+          className="absolute inset-0 size-full"
+        />
+        <div className="absolute inset-0 bg-linear-to-t from-charcoal from-10% via-charcoal/80 via-45% to-charcoal/10" />
+      </div>
+
+      {/* Desktop: brilho vermelho de fundo */}
       <div
         aria-hidden
-        className="absolute -top-40 -left-40 size-[32rem] rounded-full bg-brand-red/25 blur-[120px] sm:size-[42rem] sm:blur-[140px]"
+        className="absolute -top-40 -left-40 hidden size-[42rem] rounded-full bg-brand-red/25 blur-[140px] lg:block"
       />
 
-      <Container className="relative grid items-center gap-12 py-10 sm:gap-14 sm:py-12 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.1fr_0.9fr] lg:py-16">
+      <Container className="relative grid min-h-svh items-end gap-14 pt-28 pb-12 sm:pb-16 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-16">
         <div>
-          <Logo className="reveal-zoom w-full max-w-[13rem] sm:max-w-[19rem]" />
+          <Logo className="reveal-zoom w-full max-w-[9.5rem] sm:max-w-[13rem] lg:max-w-[19rem]" />
 
           <h1
             className="reveal mt-6 text-[2.75rem] leading-[0.95] sm:mt-8 sm:text-6xl xl:text-7xl"
@@ -50,8 +60,8 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Coluna visual: vídeo vertical + mascote sentado na borda + selo */}
-        <div className="relative mx-auto mb-6 w-full max-w-[17rem] sm:max-w-sm lg:mb-0 lg:max-w-md">
+        {/* Desktop: vídeo vertical emoldurado + mascote sentado na borda + selo */}
+        <div className="relative mx-auto hidden w-full max-w-md lg:block">
           <div
             data-parallax="0.05"
             className="reveal-zoom relative mx-auto aspect-[9/14] max-h-[calc(100svh-9rem)] overflow-hidden rounded-[1.75rem] shadow-2xl ring-1 shadow-black/60 ring-cream/10 sm:rounded-[2rem]"

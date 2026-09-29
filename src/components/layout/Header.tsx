@@ -45,8 +45,8 @@ export function Header() {
       )}
     >
       <Container className="flex h-20 items-center justify-between gap-6">
-        <Link href="#inicio" aria-label={`${siteConfig.name} — início`} onClick={() => setOpen(false)}>
-          <Logo className="w-28" bottomText="" />
+        <Link href="/#inicio" aria-label={`${siteConfig.name} — início`} onClick={() => setOpen(false)}>
+          <Logo className="w-28" />
         </Link>
 
         <nav aria-label="Principal" className="hidden items-center gap-7 lg:flex">

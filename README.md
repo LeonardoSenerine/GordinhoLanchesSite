@@ -22,12 +22,14 @@ Copie `.env.example` para `.env.local` e ajuste `NEXT_PUBLIC_SITE_URL`.
 
 ```
 src/
-  app/                 layout raiz (fontes, SEO), página, 404, sitemap, robots, ícone
+  app/                 layout raiz (fontes, SEO), página, 404, /privacidade, /cookies,
+                       sitemap.xml e robots.txt (gerados), ícone
   assets/
     brand/             mascote.png (recortado do logo) e logo original (só referência)
     images/            fotos otimizadas + index.ts (catálogo com textos alternativos)
   components/
     brand/Logo.tsx     emblema em SVG (sem "self service", que não existe mais)
+    legal/             layout das páginas de política
     layout/            Header, Footer, FloatingActions (WhatsApp flutuante / barra mobile)
     motion/            MotionEffects (revelação + parallax), CountUp, VideoLoop
     sections/          Hero, Marquee, Legacy, Story, Pillars, Space, ImageBand, Team,
@@ -52,3 +54,10 @@ fotos-originais/       originais de câmera — fora do git e do build
 - `reveal`, `reveal-zoom`, `reveal-curtain`, `reveal-write`: aparecem ao entrar na tela.
   Escalone com `style={delay(120)}`. Respeitam `prefers-reduced-motion`.
 - `data-parallax="0.1"`: desloca o elemento com o scroll (só desktop).
+
+## Privacidade e cookies
+
+O site **não grava cookies próprios** e não usa analytics nem pixels; o mapa do Google só carrega
+após clique. Por isso não há banner de consentimento. Se algum dia entrar Google Analytics, Meta Pixel
+ou formulário, atualize `/privacidade` e `/cookies` e adicione um banner de consentimento.
+Razão social, CNPJ e e-mail de contato (LGPD) ficam em `siteConfig.legal`.

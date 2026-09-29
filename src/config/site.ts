@@ -49,12 +49,26 @@ export const siteConfig = {
     facebook: "", // [PREENCHER] URL da página "Gordinho Lanches e Restaurante"
   },
 
+  legal: {
+    // Nome empresarial e CNPJ aparecem nas políticas quando preenchidos
+    companyName: "", // [PREENCHER] razão social
+    cnpj: "", // [PREENCHER] ex.: "00.000.000/0001-00"
+    email: "", // [PREENCHER] e-mail para pedidos de privacidade (LGPD); sem ele, usa o WhatsApp
+    lastUpdated: "2026-09-29",
+  },
+
+  // Âncoras com "/" para funcionarem também a partir das páginas internas (políticas, 404)
   nav: [
-    { label: "Nossa história", href: "#historia" },
-    { label: "Do jeito Gordinho", href: "#jeito-gordinho" },
-    { label: "O espaço", href: "#espaco" },
-    { label: "De perto", href: "#de-perto" },
-    { label: "Visite", href: "#visite" },
+    { label: "Nossa história", href: "/#historia" },
+    { label: "Do jeito Gordinho", href: "/#jeito-gordinho" },
+    { label: "O espaço", href: "/#espaco" },
+    { label: "De perto", href: "/#de-perto" },
+    { label: "Visite", href: "/#visite" },
+  ],
+
+  legalPages: [
+    { label: "Política de Privacidade", href: "/privacidade" },
+    { label: "Política de Cookies", href: "/cookies" },
   ],
 } as const;
 
