@@ -32,6 +32,7 @@ export function Story() {
               src={photos.equipeBalcao.src}
               alt={photos.equipeBalcao.alt}
               placeholder="blur"
+              quality={90}
               sizes="(min-width: 1024px) 560px, 100vw"
               className="aspect-[4/3] object-cover"
             />

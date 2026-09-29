@@ -16,6 +16,7 @@ export function Team() {
               src={photos.heroBrasa.src}
               alt={photos.heroBrasa.alt}
               placeholder="blur"
+              quality={90}
               sizes="(min-width: 1024px) 400px, 60vw"
               className="aspect-[3/4] object-cover object-[40%_center]"
             />
