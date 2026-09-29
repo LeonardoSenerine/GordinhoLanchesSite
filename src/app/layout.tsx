@@ -64,8 +64,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+// Um único tema: o site é sempre escuro/marca, independente do modo claro/escuro do sistema.
+// "color-scheme" declarado impede o "modo escuro automático" de navegadores (Chrome, Samsung
+// Internet) de inverter as cores; o CSS reforça com "only dark" (proíbe qualquer troca).
 export const viewport: Viewport = {
   themeColor: "#0e0d0d",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

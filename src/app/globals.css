@@ -54,6 +54,11 @@
 }
 
 @layer base {
+  :root {
+    /* Tema único: o navegador não pode aplicar modo claro/escuro automático */
+    color-scheme: only dark;
+  }
+
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem; /* compensa o header fixo nas âncoras */
@@ -251,6 +256,61 @@
   }
   .stamp-swing {
     animation: stamp-swing 6s ease-in-out infinite;
+  }
+
+  /* ---------- Hero: faíscas de brasa e brilho respirando ---------- */
+  .ember {
+    position: absolute;
+    bottom: -12px;
+    border-radius: 9999px;
+    opacity: 0;
+    box-shadow:
+      0 0 8px 2px currentColor,
+      0 0 22px 6px color-mix(in srgb, currentColor 45%, transparent);
+    animation: ember-rise var(--dur, 10s) linear var(--delay, 0s) infinite;
+  }
+  .glow-breathe {
+    animation: glow-breathe 7s ease-in-out infinite;
+  }
+}
+
+/* No celular, metade das faíscas (menos trabalho para o aparelho) */
+@media (max-width: 1023px) {
+  .ember:nth-child(2n) {
+    display: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ember {
+    display: none;
+  }
+}
+
+@keyframes ember-rise {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  10% {
+    opacity: var(--peak, 0.9);
+  }
+  60% {
+    opacity: calc(var(--peak, 0.9) * 0.7);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(var(--drift, 40px), -105svh, 0) scale(0.3);
+  }
+}
+@keyframes glow-breathe {
+  0%,
+  100% {
+    opacity: 0.7;
+    scale: 1;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.12;
   }
 }
 

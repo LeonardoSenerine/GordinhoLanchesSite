@@ -15,7 +15,7 @@ export function OpenBadge({ className }: { className?: string }) {
   if (status?.open) {
     dot = "bg-emerald-400 animate-pulse";
     text = `Aberto agora · até ${formatHour(status.schedule.closes)}`;
-    if (status.afterMidnight && "note" in status.schedule) text += " · pedidos no balcão";
+    if (status.afterMidnight && "counterAfterMidnight" in status.schedule) text += " · pedidos no balcão";
   } else if (status) {
     dot = "bg-brand-red";
     text = `Fechado agora · abre às ${formatHour(status.schedule.opens)}`;

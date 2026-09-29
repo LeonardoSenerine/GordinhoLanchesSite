@@ -48,8 +48,22 @@ export const siteConfig = {
    * `closes` depois da meia-noite significa madrugada do dia seguinte.
    */
   hours: [
-    { label: "Domingo a quarta", short: "Dom–Qua", days: [0, 1, 2, 3], opens: "18:00", closes: "01:00" },
-    { label: "Quinta", short: "Qui", days: [4], opens: "18:00", closes: "02:00" },
+    {
+      label: "Domingo a quarta",
+      short: "Dom–Qua",
+      days: [0, 1, 2, 3],
+      opens: "18:00",
+      closes: "01:00",
+      note: "Salão aberto até a 1h da manhã. Delivery pelo WhatsApp e iFood até a meia-noite.",
+    },
+    {
+      label: "Quinta",
+      short: "Qui",
+      days: [4],
+      opens: "18:00",
+      closes: "02:00",
+      note: "A noite vai mais longe: salão aberto até as 2h. Delivery até a meia-noite.",
+    },
     {
       label: "Sexta e sábado",
       short: "Sex–Sáb",
@@ -57,6 +71,8 @@ export const siteConfig = {
       opens: "18:00",
       closes: "05:00",
       note: "Depois da meia-noite, o pedido é feito no balcão — o salão continua aberto.",
+      // Depois da meia-noite o pedido é no balcão (selo "pedidos no balcão" no topo)
+      counterAfterMidnight: true,
     },
   ],
 

@@ -39,7 +39,7 @@ export function HoursBoard() {
                 <span className={cn("mx-1 text-2xl", isToday ? "text-cream/70" : "text-brand-red")}>→</span>
                 {formatHour(h.closes)}
               </p>
-              {"note" in h && (
+              {h.note && (
                 <p
                   className={cn(
                     "mt-4 border-t pt-4 text-sm leading-snug",

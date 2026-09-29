@@ -10,6 +10,7 @@ import { WhatsAppIcon } from "@/components/ui/icons";
 import { VideoLoop } from "@/components/motion/VideoLoop";
 import { OpenBadge } from "@/components/hours/OpenBadge";
 import { SplitLetters } from "@/components/motion/SplitLetters";
+import { Embers } from "@/components/motion/Embers";
 
 // Salão sem moldura (como no Ponto Alto): some à esquerda e embaixo, fundindo com o fundo escuro
 const fadeSalao: CSSProperties = {
@@ -62,8 +63,11 @@ export function Hero() {
       {/* Brilho vermelho (desktop) */}
       <div
         aria-hidden
-        className="absolute -top-40 -left-40 -z-10 hidden size-[42rem] rounded-full bg-brand-red/25 blur-[140px] lg:block"
+        className="glow-breathe absolute -top-40 -left-40 -z-10 hidden size-[42rem] rounded-full bg-brand-red/25 blur-[140px] lg:block"
       />
+
+      {/* Faíscas de brasa subindo */}
+      <Embers />
 
       <Container className="relative grid min-h-svh items-end gap-14 pt-28 pb-12 sm:pb-16 lg:min-h-[calc(100svh-5rem)] lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-16">
         {/* ---- Texto ---- */}
@@ -85,11 +89,11 @@ export function Hero() {
               className="block text-[clamp(2.6rem,11vw,5rem)] leading-[0.95] whitespace-nowrap"
             />
             <span
-              className="reveal mt-2 block text-[1.7rem] leading-[1.05] text-brand-red sm:text-[2rem]"
+              className="heading-mark reveal mt-2 block text-[1.7rem] leading-[1.05] text-brand-red sm:text-[2rem]"
               style={delay(700)}
             >
               Sem economizar <br className="lg:hidden" />
-              no sabor.
+              <em className="not-italic">no sabor.</em>
             </span>
           </h1>
 
@@ -115,6 +119,7 @@ export function Hero() {
         <div className="relative mx-auto hidden w-full max-w-sm lg:block">
           <div
             data-parallax="0.05"
+            data-tilt="7"
             className="reveal-zoom relative mx-auto aspect-[9/14] max-h-[calc(100svh-10rem)] overflow-hidden rounded-[2rem] shadow-2xl ring-1 shadow-black/70 ring-cream/15"
             style={delay(200)}
           >
@@ -124,6 +129,7 @@ export function Hero() {
               className="absolute inset-0 size-full"
             />
             <div aria-hidden className="absolute inset-0 bg-linear-to-t from-charcoal/50 via-transparent" />
+            <div aria-hidden className="tilt-glare pointer-events-none absolute inset-0" />
           </div>
 
           {/* O PNG do mascote vem inclinado como no logo; a rotação o nivela na borda do vídeo */}
