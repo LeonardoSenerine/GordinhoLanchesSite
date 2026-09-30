@@ -3,6 +3,7 @@ import { siteConfig, yearsOfHistory } from "@/config/site";
 import { photos } from "@/assets/images";
 import { historyClosing, milestones } from "@/data/history";
 import { cn, delay } from "@/lib/utils";
+import { formatHour } from "@/lib/hours";
 import { coverPx, coverVw } from "@/lib/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -21,6 +22,17 @@ export function Story() {
         </>
       ),
       label: "seguidores no Instagram",
+    },
+  ];
+
+  // O mural termina em 2016; "Hoje" usa só o que já sabemos do endereço e do horário atuais
+  const timeline = [
+    ...milestones,
+    {
+      year: "Hoje",
+      title: "A história continua",
+      text: `Estamos no ${siteConfig.address.complement}, com salão amplo, espaço kids e estacionamento na porta.`,
+      detail: `E a vontade é a mesma de ${siteConfig.foundedYear}: lanche caprichado, casa cheia e a porta aberta toda noite, a partir das ${formatHour(siteConfig.hours[0].opens)}.`,
     },
   ];
 
@@ -87,6 +99,10 @@ export function Story() {
           <h3 className="reveal text-[1.75rem] sm:text-4xl" style={delay(100)}>
             A trajetória do Gordinho
           </h3>
+          <p className="reveal mt-5 text-base text-muted sm:text-lg" style={delay(200)}>
+            Da rua ao salão, foram {years ?? "muitos"} anos e seis paradas pelo caminho. A história abaixo é a
+            mesma que está pintada no mural da nossa parede — contada por quem viveu cada uma delas.
+          </p>
         </div>
 
         <div className="relative mx-auto mt-14 max-w-4xl">
@@ -97,7 +113,7 @@ export function Story() {
           </div>
 
           <ol>
-            {milestones.map((m, i) => {
+            {timeline.map((m, i) => {
               const right = i % 2 === 1;
               return (
                 <li
@@ -120,7 +136,9 @@ export function Story() {
                   <div className={right ? "reveal-right" : "reveal-left"}>
                     <p className="font-display text-5xl leading-none text-brand-red sm:text-6xl">{m.year}</p>
                     <h4 className="mt-2 font-display text-xl uppercase sm:text-2xl">{m.title}</h4>
-                    <p className="mt-2 text-base text-muted sm:text-lg">{m.text}</p>
+                    {/* Frase do mural em destaque; em seguida, o nosso texto de apoio */}
+                    <p className="mt-3 text-base font-medium text-charcoal sm:text-lg">{m.text}</p>
+                    <p className="mt-2 text-sm text-muted sm:text-base">{m.detail}</p>
                   </div>
                 </li>
               );
