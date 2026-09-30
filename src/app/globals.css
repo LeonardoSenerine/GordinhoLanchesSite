@@ -210,6 +210,14 @@
   .js-anim .is-visible .line-draw {
     scale: 1 1;
   }
+  /* Versão vertical (trajetória na seção de história) */
+  .js-anim .line-draw-y {
+    scale: 1 0;
+    transition: scale 2.6s var(--ease-brand) 0.2s;
+  }
+  .js-anim .is-visible .line-draw-y {
+    scale: 1 1;
+  }
   .js-anim .dot-pop {
     scale: 0;
     transition: scale 0.5s cubic-bezier(0.3, 1.6, 0.5, 1) var(--delay, 0.2s);

@@ -3,8 +3,8 @@
  * Todos os dados do negócio ficam aqui — componentes nunca devem ter
  * telefone, endereço ou horários "chumbados" no JSX.
  *
- * Fonte dos dados: perfil do Google e Instagram (@gordinho.hamburgueria).
- * Itens marcados com [CONFIRMAR] foram deduzidos e precisam de validação.
+ * Fonte dos dados: o cliente, o mural "Nossa História" da lanchonete, o perfil do Google
+ * e o Instagram (@gordinho.hamburgueria). Itens marcados com [PREENCHER] ainda faltam.
  */
 export const siteConfig = {
   name: "Gordinho Lanches",
@@ -13,9 +13,7 @@ export const siteConfig = {
   city: "Itatiba",
   state: "SP",
   description:
-    "Gordinho Lanches — desde 1992 fazendo parte de Itatiba/SP. Lanche caprichado, família reunida, espaço kids e estacionamento na porta no Itacenter Mall.",
-  // Lema da bio do Instagram — usado como assinatura institucional
-  motto: ["Perseverança", "Tribulação", "Paciência"],
+    "Gordinho Lanches — desde 1992 fazendo parte de Itatiba/SP. Lanches e cachorros-quentes caprichados, família reunida, espaço kids e estacionamento na porta no Itacenter Mall.",
   // URL absoluta usada no SEO e nas imagens de compartilhamento. Sem NEXT_PUBLIC_SITE_URL,
   // usa o domínio de produção que a Vercel injeta no build; em último caso, localhost.
   url:
@@ -23,7 +21,7 @@ export const siteConfig = {
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "http://localhost:3000"),
-  // [CONFIRMAR] deduzido do post de "34 anos de história" (ago/2026)
+  // Confirmado pelo mural da lanchonete: "Em 1992 começa nossa história…"
   foundedYear: 1992 as number | null,
 
   contact: {

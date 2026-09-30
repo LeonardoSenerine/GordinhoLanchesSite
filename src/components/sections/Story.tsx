@@ -1,7 +1,8 @@
 import Image from "next/image";
 import { siteConfig, yearsOfHistory } from "@/config/site";
 import { photos } from "@/assets/images";
-import { delay } from "@/lib/utils";
+import { historyClosing, milestones } from "@/data/history";
+import { cn, delay } from "@/lib/utils";
 import { coverPx, coverVw } from "@/lib/image";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -26,7 +27,7 @@ export function Story() {
   return (
     <section id="historia" className="relative overflow-hidden bg-cream py-20 text-charcoal sm:py-32">
       <Container className="grid items-center gap-16 lg:grid-cols-2">
-        {/* Colagem — TODO: trocar por foto antiga (anos 90) + foto atual quando o cliente enviar */}
+        {/* Colagem — TODO: trocar por foto antiga (kombi, carrinho, barraca) quando o cliente enviar */}
         <div className="relative pb-16 lg:pb-0">
           <div className="reveal-curtain overflow-hidden rounded-3xl">
             <Image
@@ -51,28 +52,21 @@ export function Story() {
           </div>
         </div>
 
-        {/* TODO: complementar com a história real (quem fundou, como começou, momentos marcantes) */}
         <div>
           <SectionHeading
             tone="light"
             kicker="Nossa história"
             title={
               <>
-                Tradição que passa de <em>geração em geração</em>
+                De uma kombinha a <em>uma casa cheia</em>
               </>
             }
-            intro={`Desde ${siteConfig.foundedYear}, o Gordinho é ponto de encontro em Itatiba: sanduíches caseiros, petiscos tradicionais e um ambiente descontraído, onde a família inteira se sente em casa.`}
+            intro={`Em ${siteConfig.foundedYear}, o Gordinho era uma kombi estacionada no canteiro central e um carrinho que nem rodinha tinha. O que veio depois foi construído aos poucos — carrinho, barraca, muros, janelas — com perseverança, tribulação e paciência.`}
           />
-          {/* [CONFIRMAR] com o cliente — texto de legado, sem fatos específicos */}
-          <p className="reveal mt-5 text-lg text-muted" style={delay(300)}>
-            Tem gente que vinha criança e hoje traz os filhos. Tem mesa que já viu aniversário, primeiro
-            encontro e muita conversa depois do jogo. Muita coisa mudou{years ? ` em ${years} anos` : ""}. O
-            capricho, não.
-          </p>
 
           <dl className="mt-10 grid grid-cols-3 gap-3 border-t border-charcoal/10 pt-8 sm:mt-12 sm:gap-4">
             {stats.map((stat, i) => (
-              <div key={stat.label} className="reveal" style={delay(400 + i * 100)}>
+              <div key={stat.label} className="reveal" style={delay(300 + i * 100)}>
                 <dt className="sr-only">{stat.label}</dt>
                 <dd className="font-display text-[1.35rem] whitespace-nowrap text-brand-red sm:text-4xl">
                   {stat.value}
@@ -82,6 +76,67 @@ export function Story() {
             ))}
           </dl>
         </div>
+      </Container>
+
+      {/* ---------- A trajetória (texto do mural da lanchonete) ---------- */}
+      <Container className="mt-24 sm:mt-32">
+        <div className="mx-auto max-w-2xl text-center">
+          <p className="reveal-write inline-block font-script text-[1.75rem] text-brand-red sm:text-4xl">
+            ano a ano
+          </p>
+          <h3 className="reveal text-[1.75rem] sm:text-4xl" style={delay(100)}>
+            A trajetória do Gordinho
+          </h3>
+        </div>
+
+        <div className="relative mx-auto mt-14 max-w-4xl">
+          {/* Linha do tempo: à esquerda no celular, no centro no desktop; desenha-se ao entrar na tela */}
+          <div aria-hidden className="reveal absolute inset-y-0 left-[1.15rem] w-1 md:left-1/2 md:-ml-0.5">
+            <span className="block size-full rounded-full bg-charcoal/10" />
+            <span className="line-draw-y absolute inset-0 origin-top rounded-full bg-brand-red" />
+          </div>
+
+          <ol>
+            {milestones.map((m, i) => {
+              const right = i % 2 === 1;
+              return (
+                <li
+                  key={m.year}
+                  className={cn(
+                    "relative pb-12 pl-14 last:pb-0 md:w-1/2 md:pb-16 md:pl-0",
+                    right ? "md:ml-auto md:pl-14" : "md:pr-14 md:text-right",
+                  )}
+                >
+                  {/* Marcador na linha */}
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "reveal absolute top-2 left-[0.4rem] md:left-auto",
+                      right ? "md:-left-3" : "md:-right-3",
+                    )}
+                  >
+                    <span className="dot-pop block size-6 rounded-full border-4 border-cream bg-brand-red shadow" />
+                  </span>
+                  <div className={right ? "reveal-right" : "reveal-left"}>
+                    <p className="font-display text-5xl leading-none text-brand-red sm:text-6xl">{m.year}</p>
+                    <h4 className="mt-2 font-display text-xl uppercase sm:text-2xl">{m.title}</h4>
+                    <p className="mt-2 text-base text-muted sm:text-lg">{m.text}</p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        </div>
+
+        {/* Fecho do mural */}
+        <blockquote className="reveal mx-auto mt-16 max-w-3xl rounded-3xl bg-charcoal px-6 py-10 text-center text-cream sm:mt-20 sm:px-12 sm:py-14">
+          <p className="font-script text-3xl leading-snug text-brand-mustard sm:text-4xl">
+            “{historyClosing}”
+          </p>
+          <footer className="mt-4 text-xs font-bold tracking-[0.25em] text-cream/60 uppercase">
+            Do mural da nossa lanchonete
+          </footer>
+        </blockquote>
       </Container>
     </section>
   );

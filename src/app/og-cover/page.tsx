@@ -53,7 +53,7 @@ export default function OgCover() {
             Lanche de verdade, família reunida.
           </p>
           <p className="mt-7 text-[22px] font-bold tracking-[0.12em] text-cream/85 uppercase">
-            Hamburgueria · Espaço kids · {siteConfig.city}/{siteConfig.state}
+            Lanches · Cachorro-quente · {siteConfig.city}/{siteConfig.state}
           </p>
         </div>
 

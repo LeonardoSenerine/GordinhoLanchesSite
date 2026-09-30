@@ -22,6 +22,13 @@ const stories: Story[] = [
   },
   {
     kind: "image",
+    src: photos.hotDog.src,
+    alt: photos.hotDog.alt,
+    kicker: "o clássico",
+    title: "Cachorro-quente do jeito Gordinho",
+  },
+  {
+    kind: "image",
     src: photos.burgerMaos.src,
     alt: photos.burgerMaos.alt,
     kicker: "na mão",

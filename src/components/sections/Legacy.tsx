@@ -45,7 +45,7 @@ export function Legacy() {
             <span className="font-display text-2xl text-brand-red sm:text-5xl">{now}</span>
           </div>
           <div className="mt-3 flex justify-between gap-4 text-xs text-cream/60 sm:text-sm">
-            <span>Abrimos as portas</span>
+            <span>Uma kombinha e um carrinho</span>
             <span>O mesmo capricho de sempre</span>
           </div>
         </div>

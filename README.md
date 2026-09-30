@@ -32,11 +32,12 @@ src/
     legal/             layout das páginas de política
     layout/            Header, Footer, FloatingActions (WhatsApp flutuante / barra mobile)
     motion/            MotionEffects (revelação + parallax), CountUp, VideoLoop, StoriesViewer
-    sections/          Hero, Marquee, Legacy, Story, Pillars, Space, ImageBand, Team,
-                       Community, Gallery, FinalCta, Visit, Motto
+    sections/          Hero, Marquee, Legacy, Story, Pillars, HotDog, Space, ImageBand, Team,
+                       Community, Gallery, Hours, FinalCta, Visit, Motto
     seo/               StructuredData (JSON-LD de restaurante)
     ui/                Button, Container, SectionHeading, MapEmbed, icons
   config/site.ts       dados do negócio (contato, endereço, horários, redes, lema, navegação)
+  data/history.ts      trajetória e lema, do mural "Nossa História" da lanchonete
   data/people.ts       equipe e depoimentos REAIS (seções só aparecem quando preenchidos)
 public/videos/         vídeo do hero e dos stories (já cortado, sem áudio)
 fotos-originais/       originais de câmera — fora do git e do build

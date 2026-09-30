@@ -13,7 +13,7 @@ export function StructuredData() {
     description: siteConfig.description,
     url: siteConfig.url,
     telephone: `+${contact.whatsapp}`,
-    servesCuisine: ["Lanches", "Hambúrguer", "Hot dog", "Pizza"],
+    servesCuisine: ["Lanches", "Hambúrguer", "Cachorro-quente", "Pizza"],
     ...(siteConfig.foundedYear && { foundingDate: String(siteConfig.foundedYear) }),
     address: {
       "@type": "PostalAddress",

@@ -25,7 +25,7 @@ const pillars: { title: string; text: string; photo: Photo }[] = [
   {
     title: "Tradição",
     text: "O sabor que atravessou gerações.",
-    photo: photos.hotDog,
+    photo: photos.lanchePrato2,
   },
 ];
 

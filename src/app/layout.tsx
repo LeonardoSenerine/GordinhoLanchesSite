@@ -27,7 +27,7 @@ const sans = Rubik({
 });
 
 const shareDescription =
-  "Sem economizar no sabor. Lanche de verdade, família reunida, espaço kids e estacionamento na porta no Itacenter Mall.";
+  "Sem economizar no sabor. Lanches e cachorros-quentes de verdade, família reunida, espaço kids e estacionamento na porta no Itacenter Mall.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -40,6 +40,8 @@ export const metadata: Metadata = {
     "hamburgueria",
     "lanchonete",
     "lanches",
+    "cachorro-quente",
+    "cachorro-quente em Itatiba",
     "hot dog",
     "Itatiba",
     "Gordinho Lanches",

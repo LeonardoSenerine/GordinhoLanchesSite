@@ -3,6 +3,7 @@ import { Marquee } from "@/components/sections/Marquee";
 import { Legacy } from "@/components/sections/Legacy";
 import { Story } from "@/components/sections/Story";
 import { Pillars } from "@/components/sections/Pillars";
+import { HotDog } from "@/components/sections/HotDog";
 import { Space } from "@/components/sections/Space";
 import { ImageBand } from "@/components/sections/ImageBand";
 import { Team } from "@/components/sections/Team";
@@ -30,6 +31,7 @@ export default function Home() {
       <Legacy />
       <Story />
       <Pillars />
+      <HotDog />
       <Space />
       <ImageBand />
       <Team />

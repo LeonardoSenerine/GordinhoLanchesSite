@@ -35,7 +35,7 @@ export const photos = {
     alt: "Equipe do Gordinho sorrindo atrás do balcão, ao lado da churrasqueira",
   },
   heroBrasa: { src: heroBrasa, alt: "Faíscas subindo da brasa enquanto o chapeiro prepara o fogo" },
-  hotDog: { src: hotDog, alt: "Hot dog prensado coberto de batata palha e molho" },
+  hotDog: { src: hotDog, alt: "Cachorro-quente do Gordinho coberto de batata palha e molho" },
   lanchePrato: { src: lanchePrato, alt: "Lanche caprichado cortado ao meio, com bife, alface e tomate" },
   lanchePrato2: { src: lanchePrato2, alt: "Lanche farto cortado ao meio servido no prato" },
   lancheQueijo: { src: lancheQueijo, alt: "Lanche partido ao meio com queijo derretido puxando" },

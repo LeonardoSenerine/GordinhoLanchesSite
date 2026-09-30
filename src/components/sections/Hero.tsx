@@ -88,7 +88,7 @@ export function Hero() {
 
           <p className="hero-in mt-6 max-w-lg text-base text-cream/80 sm:text-lg" style={d(0.95)}>
             {years ? `Há ${years} anos` : "Há décadas"} fazendo parte das noites de {siteConfig.city}, com
-            lanche caprichado, família reunida e aquele sabor que continua o mesmo.
+            lanche e cachorro-quente caprichados, família reunida e aquele sabor que continua o mesmo.
           </p>
 
           <div

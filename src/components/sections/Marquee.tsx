@@ -5,6 +5,7 @@ import { SparkIcon } from "@/components/ui/icons";
 const defaultItems = [
   "Desde 1992",
   "Feito na chapa",
+  "Cachorro-quente tradicional",
   "Sem economizar no sabor",
   "Família reunida",
   "Orgulho de Itatiba",
