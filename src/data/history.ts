@@ -53,6 +53,6 @@ export const historyClosing = "Nossa história não termina aqui, apenas recome�
 /** O lema e o que cada palavra significa, como está no mural. */
 export const mottoMeanings = [
   { word: "Perseverança", meaning: "Acredite no sonho que será realizado!" },
-  { word: "Tribulação", meaning: "Sabia que a ajuda vem na nossa vida." },
+  { word: "Tribulação", meaning: "Saiba que a ajuda vem na nossa vida." },
   { word: "Paciência", meaning: "Nós iremos vencer!" },
 ];

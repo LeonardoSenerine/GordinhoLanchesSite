@@ -30,8 +30,8 @@ export default function Home() {
       </div>
       <Legacy />
       <Story />
-      <Pillars />
       <HotDog />
+      <Pillars />
       <Space />
       <ImageBand />
       <Team />
